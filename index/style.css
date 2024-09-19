@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .not-first-not-last {
+    @apply bg-gray-500;
+  }
+}
+
+body {
+  @apply bg-[#FFF0E6];
+}
+.header-right {
+  max-width: calc(960px + calc(100% - 960px)/2)
+}
+.container {
+  @apply max-w-cxl mx-auto p-4 gap-6 flex flex-wrap justify-between;
+}
+
+/* Left Sidebar */
+.left-side {
+  @apply w-96 mx-auto md:w-60 lg:w-80 flex flex-wrap flex-col gap-6 max-w-full;
+}
+.left-side .image-upload {
+  @apply rounded-xl overflow-hidden w-96 md:w-60 lg:w-80 h-96 md:h-60 lg:h-80 relative cursor-pointer max-w-full;
+}
+.left-side .upload-icon {
+  @apply w-9 h-9 rounded-full bg-brown border-2 border-white absolute right-2 bottom-2 z-50 p-2 transition-all;
+}
+.change-theme-button {
+  @apply flex flex-wrap items-center gap-2 w-full transition-all px-3 py-2 rounded-lg bg-[#5218000a] hover:border-[#5218000a] hover:bg-brown/[0.08];
+}
+.change-theme-button .button-text-wrap {
+  @apply flex flex-wrap flex-col ms-1 flex-1 text-start border border-transparent;
+}
+.change-theme-button .theme-text {
+  @apply text-brown/[.36] text-xs;
+}
+.change-theme-button .theme-type {
+  @apply text-base text-brown font-medium;
+}
+
+/* Right Sidebar */
+.right-side {
+  @apply w-full md:w-[calc(100%-265px)] lg:w-[calc(100%-345px)] flex flex-col gap-6 flex-wrap;
+}
+.right-side .name-input-wrapper {
+  @apply h-14 font-semibold text-[40px] leading-[44px] flex;
+}
+.right-side .name-input-wrapper textarea {
+  @apply text-brown overflow-hidden border-0 bg-transparent p-0 font-semibold text-[40px] w-full resize-none focus-visible:outline-0 placeholder:text-brown/[0.30];
+}
+.event-options {
+  @apply relative;
+}
+.event-options > div {
+  @apply after:content-[''] after:absolute after:border after:w-full after:start-0 after:border-[#5208000a] last:after:border-0;
+}
+
+.switch {
+  @apply relative inline-block w-9 h-6;
+}
+.switch input {
+  @apply opacity-0 w-0 h-0;
+}
+.slider {
+  @apply rounded-xl absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#81210029] transition-all before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[2px] before:bottom-[2px] before:rounded-xl before:bg-white before:transition-all before:shadow-sliderDot;
+}
+
+.switch input:checked + .slider {
+  @apply bg-orange;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+
+/* Date Time Wrapper */
+.time-wrapper {
+    @apply bg-[#5218000a] rounded-lg overflow-hidden backdrop-blur-lg relative flex-1;
+}
+.timeline {
+    @apply absolute top-7 bottom-7 left-5 border-l border-dashed border-brown/[0.2]
+}
+.dot {
+    @apply bg-brown/[0.2] me-3 ms-1 w-2.5 h-2.5 shrink-0 rounded-full
+}
+.end-date .dot {@apply bg-transparent border border-brown/[0.2]}
+.label {
+    @apply w-16 whitespace-nowrap flex-1 text-brown/[0.64]
+}
+.time-input,
+.date-input {
+    @apply bg-[#4218000a] border border-solid border-transparent rounded-l border-e-0 transition-all flex-1 flex items-center
+}
+.time-input {
+    @apply !rounded-r;
+}
+.divider {
+    @apply w-1 bg-transparent transition-all
+}
+.date-input input[type='text'],
+.time-input input[type='text'] {
+    @apply min-w-0 h-8 px-2 text-base text-brown bg-transparent w-full border-0 border-transparent rounded text-start items-center transition-all focus-visible:outline-none focus-visible:outline-offset-0;
+}
+.timezone {
+    @apply bg-[#5218000a] hover:bg-brown/[0.08] hover:border-[#5218000a] border border-transparent overflow-hidden rounded-lg backdrop-blur-lg transition;
+}
+.timezone-inner {
+    @apply h-full cursor-pointer inline-flex outline-0 w-full
+}
+.timezone-wrapper {
+    @apply flex flex-col h-full w-36 py-2 px-2.5 text-brown/[0.64]
+}
+.timezone-icon {@apply mb-1.5}
