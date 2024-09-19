@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/output.css" />    
+    <title>Document</title>
+  </head>
+  <body class="">
+    
+    <div
+      class="h-screen w-full bg-moving-radial bg-[length:200%_200%] animate-moving-bg top-0 bottom-0 left-0 right-0 h-full fixed -z-10"
+    ></div>    
+    <header class="">
+      <nav
+        class="py-3 px-4 relative flex flex-wrap z-20 gap-2 justify-between items-center w-full"
+      >
+        <div class="logo p-1 text-brown/[0.36] cursor-pointer group">
+          <svg
+            class="w-5 h-5 fill-brown/[.36] group-hover:fill-black transition-all"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 133 134"
+          >
+            <path
+              d="M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67"
+            ></path>
+          </svg>
+        </div>
+        <div
+          class="header-right flex items-center justify-between flex-1 min-w-0"
+        >
+          <ul class="flex flex-wrap items-center gap-5 px-4">
+            <li>
+              <a
+                href=""
+                class="flex flex-wrap items-center gap-2 text-brown/[0.36] font-medium text-sm transition-all hover:text-black"
+              >
+                <svg
+                  class="w-4 h-4 fill-brown/[.36]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M3.204 1.25C1.44 1.25.251 2.938.251 4.693v1.452c-.001.068-.001.163.007.247a.96.96 0 0 0 .162.466c.142.205.348.298.411.327l.005.002c.083.038.185.076.277.11l.016.007c.177.066.394.309.394.696s-.217.63-.394.696l-.017.007c-.091.034-.193.072-.276.11l-.005.002c-.063.029-.269.122-.411.327a.96.96 0 0 0-.162.465c-.008.084-.008.18-.008.247v1.453c0 1.755 1.188 3.443 2.954 3.443h9.592c1.766 0 2.954-1.688 2.954-3.443V9.854c0-.068 0-.163-.008-.247a.96.96 0 0 0-.162-.465c-.142-.205-.348-.298-.411-.327l-.005-.003a5 5 0 0 0-.276-.11l-.017-.006c-.177-.066-.394-.309-.394-.696s.217-.63.394-.696l.017-.007c.091-.034.193-.072.276-.11l.005-.002a1 1 0 0 0 .411-.327.96.96 0 0 0 .162-.466c.008-.084.008-.179.008-.247V4.693c0-1.755-1.19-3.443-2.954-3.443zM1.751 4.693c0-1.221.784-1.943 1.453-1.943H9.25v3.008a.75.75 0 0 0 1.5 0V2.75h2.046c.669 0 1.453.722 1.453 1.943v1.244c-.788.344-1.272 1.178-1.272 2.063s.484 1.72 1.273 2.063v1.244c0 1.221-.784 1.943-1.454 1.943H10.75v-2.492a.75.75 0 0 0-1.5 0v2.492H3.204c-.67 0-1.454-.722-1.454-1.943v-1.244C2.54 9.719 3.023 8.885 3.023 8S2.539 6.28 1.75 5.937z"
+                  ></path>
+                </svg>
+                <span class="hidden md:block">Events</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                class="flex flex-wrap items-center gap-2 text-brown/[0.36] font-medium text-sm transition-all hover:text-black"
+              >
+                <svg
+                  class="w-4 h-4 fill-brown/[.36]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M5.75 1.25a.75.75 0 1 0-1.5 0v.823l-.392.044c-.9.121-1.658.38-2.26.982s-.861 1.36-.982 2.26C.5 6.225.5 7.328.5 8.695v.11l.117 3.337c.121.9.38 1.658.982 2.26s1.36.861 2.26.982c.867.117 1.969.117 3.337.117h1.658l3.337-.117c.9-.121 1.658-.38 2.26-.982s.861-1.36.982-2.26c.117-.867.117-1.969.117-3.337v-.11l-.117-3.337c-.121-.9-.38-1.658-.982-2.26s-1.36-.861-2.26-.982l-.44-.048V1.25a.75.75 0 0 0-1.5 0v.756L8.853 2H7.195q-.78-.002-1.445.006zm4.5 3v-.744L8.798 3.5H7.25l-1.5.007v.743a.75.75 0 1 1-1.5 0v-.67l-.192.023c-.734.099-1.122.279-1.399.556s-.457.665-.556 1.399C2.002 6.313 2 7.315 2 8.75l.103 3.192c.099.734.279 1.122.556 1.399s.665.457 1.399.556c.755.101 1.756.103 3.192.103h1.548l3.192-.103c.734-.099 1.122-.279 1.399-.556s.457-.665.556-1.399c.102-.755.103-1.757.103-3.192l-.103-3.192c-.099-.734-.279-1.122-.556-1.399s-.665-.457-1.399-.556l-.241-.028v.675a.75.75 0 0 1-1.5 0zm-5 3.5a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0m0 3.5a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0M8 8.5A.75.75 0 1 0 8 7a.75.75 0 1 0 0 1.5m.75 2.75a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0M11.5 8.5a.75.75 0 1 0 0-1.5.75.75 0 1 0 0 1.5m.75 2.75a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0"
+                  ></path>
+                </svg>
+                <span class="hidden md:block">Calendars</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                class="flex flex-wrap items-center gap-2 text-brown/[0.36] font-medium text-sm transition-all hover:text-black"
+              >
+                <svg
+                  class="w-4 h-4 fill-brown/[.36]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M2 7.997a5.997 5.997 0 1 1 11.995 0A5.997 5.997 0 0 1 2 7.997M7.997.5a7.497 7.497 0 1 0 0 14.995A7.497 7.497 0 0 0 7.997.5m3.323 5.084a.75.75 0 0 0-.91-.91l-3.548.888c-.64.16-1.14.66-1.3 1.3l-.888 3.549a.75.75 0 0 0 .91.91l3.548-.888c.64-.16 1.14-.66 1.3-1.3zM7.226 7.017l2.335-.584-.583 2.335a.29.29 0 0 1-.21.21l-2.335.584.584-2.336a.29.29 0 0 1 .21-.21"
+                  ></path>
+                </svg>
+                <span class="hidden md:block">Discover</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="flex flex-wrap items-center gap-5">
+            <li>
+              <a
+                href=""
+                class="hidden md:block text-brown/[0.36] text-sm font-medium focus-visible:outline-none"
+                >5:50 PM GMT+5:30</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-brown/[0.64] text-sm font-medium focus-visible:outline-none"
+                >Create Event</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-brown/[0.64] text-sm font-medium focus-visible:outline-none group"
+              >
+                <svg
+                  class="w-4 h-4 fill-brown/[.36] group-hover:fill-black transition-all"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0m-.965 5.096a6.5 6.5 0 1 1 1.06-1.06l2.935 2.934a.75.75 0 1 1-1.06 1.06z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-brown/[0.64] text-sm font-medium focus-visible:outline-none group"
+              >
+                <svg
+                  class="w-4 h-4 fill-brown/[.36] group-hover:fill-black transition-all"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.119.553c-1.716 0-2.999.64-3.838 1.657-.822.994-1.162 2.279-1.162 3.499 0 .552-.109.92-.25 1.199-.146.29-.345.52-.603.797l-.09.096C1.67 8.337 1.01 9.036 1.01 10.36q0 .033.003.065c.057.653.253 1.237.636 1.727.38.487.899.825 1.509 1.061.524.203 1.143.34 1.853.431q.022.04.05.08c.796 1.133 1.885 1.79 3.066 1.786 1.179-.004 2.263-.666 3.052-1.786a1 1 0 0 0 .05-.081c.71-.092 1.329-.23 1.852-.433.61-.237 1.129-.575 1.509-1.061.382-.49.578-1.073.635-1.724l.003-.065c0-1.323-.66-2.022-1.165-2.558l-.091-.096c-.258-.276-.458-.508-.604-.797-.14-.278-.249-.647-.249-1.2 0-1.165-.344-2.444-1.157-3.447C11.129 1.234 9.849.553 8.119.553m.835 13.236a43 43 0 0 1-1.673 0c.289.154.575.221.841.22.264 0 .547-.068.832-.22M4.62 5.709c0-.963.27-1.881.818-2.544.53-.64 1.372-1.112 2.682-1.112 1.296 0 2.141.491 2.678 1.152.555.685.822 1.609.822 2.504 0 .766.155 1.37.41 1.875.25.494.578.857.847 1.145l.057.061c.498.532.786.84.795 1.536-.04.407-.156.688-.32.899-.172.22-.44.419-.87.585-.893.347-2.307.487-4.419.487-2.113 0-3.526-.138-4.42-.484-.429-.166-.696-.365-.868-.584-.164-.211-.28-.493-.321-.903.009-.696.297-1.004.795-1.536l.057-.061c.27-.288.597-.651.847-1.145.255-.505.41-1.109.41-1.875"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="left-side">
+        <!-- Image part -->
+        <div class="image-upload group">
+          <img src="./assets/images/rocket.jfif" alt="" />
+          <div class="upload-icon group-hover:bg-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+              <path
+                fill="white"
+                fill-rule="evenodd"
+                d="M8 .25h-.042c-1.369 0-2.454 0-3.32.088-.888.09-1.629.28-2.277.713a4.8 4.8 0 0 0-1.31 1.31c-.434.648-.623 1.39-.713 2.277C.25 5.504.25 6.589.25 7.958v.084c0 1.369 0 2.454.088 3.32.09.888.28 1.629.713 2.277.346.519.791.964 1.31 1.31.648.434 1.39.623 2.277.713.866.088 1.951.088 3.32.088h.084c1.369 0 2.454 0 3.32-.088.888-.09 1.629-.28 2.277-.712a4.8 4.8 0 0 0 1.31-1.311c.434-.648.623-1.39.713-2.277.088-.866.088-1.951.088-3.32v-.084c0-1.369 0-2.454-.088-3.32-.09-.888-.28-1.629-.712-2.277a4.8 4.8 0 0 0-1.311-1.31c-.648-.434-1.39-.623-2.277-.713C10.496.25 9.411.25 8.042.25zm2.32 8.535c.156-.21.735-.868 1.486-.4.478.295.88.694 1.31 1.12.164.164.28.35.359.549.234.6.112 1.323-.138 1.918a2.59 2.59 0 0 1-1.583 1.479c-.318.104-.652.149-.984.149h-5.9c-.587 0-1.106-.14-1.532-.403-.267-.165-.314-.545-.116-.791q.494-.617.986-1.242c.628-.797 1.051-1.029 1.522-.826.19.084.382.21.579.343.525.357 1.255.847 2.216.315.658-.369 1.04-1 1.372-1.551l.006-.01.07-.115a7 7 0 0 1 .347-.535M3.8 5.55c0-.965.784-1.75 1.75-1.75.964 0 1.748.785 1.748 1.75S6.514 7.3 5.55 7.3 3.8 6.515 3.8 5.55"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Change Theme Button -->
+        <button class="change-theme-button" name="">
+          <img
+            src="https://images.lumacdn.com/themes/thumb/minimal.jpg"
+            alt="Minimal Theme"
+            class="w-12"
+          />
+          <div class="button-text-wrap">
+            <div class="theme-text">Theme</div>
+            <div class="theme-type">Minimal</div>
+          </div>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              class="w-4 h-4 fill-brown/[.36]"
+            >
+              <path
+                class=""
+                fill-rule="evenodd"
+                d="M10.217 3.22c.354-.354.456-.451.543-.51.42-.28.969-.28 1.389 0 .087.059.189.156.543.51s.45.456.509.543c.28.42.28.968 0 1.389-.058.086-.155.189-.509.543l-.53.53L9.687 3.75zm-1.59 1.59L11.1 7.287l-5.76 5.76a1.25 1.25 0 0 1-.963.363l-.49-.031c-.48-.03-.768-.05-.977-.09-.185-.036-.213-.072-.214-.074-.001 0-.037-.028-.073-.213-.04-.209-.06-.498-.09-.978l-.031-.489a1.25 1.25 0 0 1 .363-.963zm1.3-3.347c-.227.152-.441.366-.719.644l-.052.052-1.06 1.06-6.29 6.291a2.75 2.75 0 0 0-.8 2.12l.03.489.003.042c.027.424.052.81.113 1.124.066.345.191.697.485.99.293.293.645.419.99.485.314.06.7.085 1.124.112l.042.003.489.031a2.75 2.75 0 0 0 2.12-.8l6.29-6.29 1.06-1.06.052-.053c.278-.277.493-.491.644-.718a2.75 2.75 0 0 0 0-3.056c-.151-.226-.366-.44-.644-.718l-.051-.052-.052-.052c-.278-.278-.492-.492-.719-.644a2.75 2.75 0 0 0-3.055 0m.578 11.986a.75.75 0 1 0 0 1.5h4a.75.75 0 1 0 0-1.5z"
+              ></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div class="right-side">
+        <div class="name-input-wrapper">
+          <textarea
+            name=""
+            placeholder="Event Name"
+            maxlength="140"
+            autocapitalize="words"
+            spellcheck="false"
+            autofocus
+          ></textarea>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <!-- Start and End Dates -->
+          <div class="flex flex-1 gap-3">
+            <div class="time-wrapper">
+              <div class="timeline"></div>
+              <div class="p-1 ps-3 gap-1 flex justify-between items-baseline">
+                <div class="dot"></div>
+                <div class="label">Start</div>
+                <div class="date-wrapper">
+                  <div class="w-auto max-w-100">
+                    <div class="max-w-56 rounded flex items-stretch">
+                      <div class="date-input">
+                        <input type="text" name="" id="" value="Wed, Sep 18" />
+                      </div>
+                      <div class="divider"></div>
+                      <div class="time-input">
+                        <input type="text" name="" id="" value="Wed, Sep 18" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-1 ps-3 gap-1 flex justify-between items-baseline end-date"
+              >
+                <div class="dot"></div>
+                <div class="label">End</div>
+                <div class="date-wrapper">
+                  <div class="w-auto max-w-100">
+                    <div class="max-w-56 rounded flex items-stretch">
+                      <div class="date-input">
+                        <input type="text" name="" id="" value="Wed, Sep 18" />
+                      </div>
+                      <div class="divider"></div>
+                      <div class="time-input">
+                        <input type="text" name="" id="" value="Wed, Sep 18" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timezone">
+              <div class="timezone-inner">
+                <div class="timezone-wrapper">
+                  <div class="timezone-icon">
+                    <svg
+                      class="w-4 h-4 fill-brown/[.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M9.394 12.674c-.604 1.208-1.178 1.42-1.394 1.42s-.79-.212-1.394-1.42c-.491-.982-.85-2.368-.932-3.97h4.652c-.082 1.602-.44 2.988-.932 3.97m.932-5.377H5.674c.082-1.603.44-2.989.932-3.971C7.21 2.118 7.784 1.906 8 1.906s.79.212 1.394 1.42c.491.982.85 2.368.932 3.97m1.408 1.406c-.09 1.915-.538 3.622-1.21 4.846a6.1 6.1 0 0 0 3.53-4.846zm2.32-1.406h-2.32c-.09-1.915-.538-3.622-1.21-4.845a6.1 6.1 0 0 1 3.53 4.845m-9.788 0c.09-1.915.538-3.622 1.21-4.845a6.1 6.1 0 0 0-3.53 4.845zm-2.32 1.406a6.1 6.1 0 0 0 3.53 4.846c-.672-1.224-1.12-2.93-1.21-4.846zM15.5 8a7.5 7.5 0 1 0-15 0 7.5 7.5 0 0 0 15 0"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="text-sm font-medium text-brown/[0.64]">
+                    GMT+05:30
+                  </div>
+                  <div
+                    class="whitespace-nowrap text-sm truncate text-brown/[0.64]"
+                  >
+                    Calcutta
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Event Location -->
+          <div
+            class="relative cursor-pointer rounded-lg bg-[#5218000a] border-1 border-transparent backdrop-blur-lg transition-all w-full hover:bg-brown/[0.08] hover:border-[#5218000a]"
+          >
+            <div class="inner py-1.5 px-3">
+              <div class="flex flex-start gap-2">
+                <div class="icon">
+                  <svg
+                    class="w-4 h-4 mt-1 text-brown/[0.36]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        d="M2 6.854C2 11.02 7.04 15 8 15s6-3.98 6-8.146C14 3.621 11.314 1 8 1S2 3.62 2 6.854"
+                      ></path>
+                      <path
+                        d="M9.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-brown/[0.64] font-medium truncate">
+                    Add Event Location
+                  </div>
+                  <div class="truncate text-sm text-brown/[0.64]">
+                    Offline location or virtual link
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Description -->
+          <div
+            class="relative cursor-pointer rounded-lg bg-[#5218000a] border-1 border-transparent backdrop-blur-lg transition-all w-full hover:bg-brown/[0.08] hover:border-[#5218000a]"
+          >
+            <div class="inner py-1.5 px-3">
+              <div class="flex flex-start gap-2">
+                <div class="icon">
+                  <svg
+                    class="w-4 h-4 mt-1 text-brown/[0.36]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M7.75 0h-.055c-1.367 0-2.47 0-3.337.117-.9.12-1.658.38-2.26.981-.602.602-.86 1.36-.981 2.26C1 4.225 1 5.328 1 6.695v2.11c0 1.368 0 2.47.117 3.337.12.9.38 1.658.981 2.26.602.602 1.36.86 2.26.982.867.116 1.97.116 3.337.116h.11c1.367 0 2.47 0 3.337-.116.9-.121 1.658-.38 2.26-.982s.86-1.36.982-2.26c.116-.867.116-1.97.116-3.337v-2.11c0-1.367 0-2.47-.116-3.337-.121-.9-.38-1.658-.982-2.26s-1.36-.86-2.26-.981C10.275 0 9.172 0 7.805 0zM3.159 2.159c.277-.277.665-.457 1.4-.556.754-.101 1.756-.103 3.191-.103s2.437.002 3.192.103c.734.099 1.122.28 1.399.556.277.277.457.665.556 1.4.101.754.103 1.756.103 3.191v2c0 1.435-.002 2.437-.103 3.192-.099.734-.28 1.122-.556 1.399-.277.277-.665.457-1.4.556-.754.101-1.756.103-3.191.103s-2.437-.002-3.192-.103c-.734-.099-1.122-.28-1.399-.556-.277-.277-.457-.665-.556-1.4-.101-.754-.103-1.756-.103-3.191v-2c0-1.435.002-2.437.103-3.192.099-.734.28-1.122.556-1.399M4.5 7.25a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1-.75-.75m0 3.5a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-brown/[0.64] font-medium truncate">
+                    Add Description
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Options -->
+          <div class="event-options">
+            <span
+              class="block font-medium text-brown/[0.64] transition-all text-sm mb-1.5"
+              >Event Options</span
+            >
+            <div
+              class="relative cursor-pointer rounded-t-lg bg-[#5218000a] border-1 border-transparent transition-all w-full"
+            >
+              <div class="inner py-2 px-3">
+                <div class="flex flex-start gap-2">
+                  <div class="icon">
+                    <svg
+                      class="w-4 h-4 mt-1 text-brown/[0.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M3.204 1.25C1.44 1.25.251 2.938.251 4.693v1.452c-.001.068-.001.163.007.247a.96.96 0 0 0 .162.466c.142.205.348.298.411.327l.005.002c.083.038.185.076.277.11l.016.007c.177.066.394.309.394.696s-.217.63-.394.696l-.017.007c-.091.034-.193.072-.276.11l-.005.002c-.063.029-.269.122-.411.327a.96.96 0 0 0-.162.465c-.008.084-.008.18-.008.247v1.453c0 1.755 1.188 3.443 2.954 3.443h9.592c1.766 0 2.954-1.688 2.954-3.443V9.854c0-.068 0-.163-.008-.247a.96.96 0 0 0-.162-.465c-.142-.205-.348-.298-.411-.327l-.005-.003a5 5 0 0 0-.276-.11l-.017-.006c-.177-.066-.394-.309-.394-.696s.217-.63.394-.696l.017-.007c.091-.034.193-.072.276-.11l.005-.002a1 1 0 0 0 .411-.327.96.96 0 0 0 .162-.466c.008-.084.008-.179.008-.247V4.693c0-1.755-1.19-3.443-2.954-3.443zM1.751 4.693c0-1.221.784-1.943 1.453-1.943H9.25v3.008a.75.75 0 0 0 1.5 0V2.75h2.046c.669 0 1.453.722 1.453 1.943v1.244c-.788.344-1.272 1.178-1.272 2.063s.484 1.72 1.273 2.063v1.244c0 1.221-.784 1.943-1.454 1.943H10.75v-2.492a.75.75 0 0 0-1.5 0v2.492H3.204c-.67 0-1.454-.722-1.454-1.943v-1.244C2.54 9.719 3.023 8.885 3.023 8S2.539 6.28 1.75 5.937z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-brown/[0.64] truncate">Tickets</div>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <div class="text-brown/[0.64] truncate">Free</div>
+                    <svg
+                      class="w-4 h-4 mt-1 text-brown/[0.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M10.217 3.22c.354-.354.456-.451.543-.51.42-.28.969-.28 1.389 0 .087.059.189.156.543.51s.45.456.509.543c.28.42.28.968 0 1.389-.058.086-.155.189-.509.543l-.53.53L9.687 3.75zm-1.59 1.59L11.1 7.287l-5.76 5.76a1.25 1.25 0 0 1-.963.363l-.49-.031c-.48-.03-.768-.05-.977-.09-.185-.036-.213-.072-.214-.074-.001 0-.037-.028-.073-.213-.04-.209-.06-.498-.09-.978l-.031-.489a1.25 1.25 0 0 1 .363-.963zm1.3-3.347c-.227.152-.441.366-.719.644l-.052.052-1.06 1.06-6.29 6.291a2.75 2.75 0 0 0-.8 2.12l.03.489.003.042c.027.424.052.81.113 1.124.066.345.191.697.485.99.293.293.645.419.99.485.314.06.7.085 1.124.112l.042.003.489.031a2.75 2.75 0 0 0 2.12-.8l6.29-6.29 1.06-1.06.052-.053c.278-.277.493-.491.644-.718a2.75 2.75 0 0 0 0-3.056c-.151-.226-.366-.44-.644-.718l-.051-.052-.052-.052c-.278-.278-.492-.492-.719-.644a2.75 2.75 0 0 0-3.055 0m.578 11.986a.75.75 0 1 0 0 1.5h4a.75.75 0 1 0 0-1.5z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative cursor-pointer bg-[#5218000a] border-1 border-transparent transition-all w-full"
+            >
+              <div class="inner py-2 px-3">
+                <div class="flex flex-start gap-2">
+                  <div class="icon">
+                    <svg
+                      class="w-4 h-4 mt-1 text-brown/[0.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M7.75.25C5.336.25 3.5 2.086 3.5 4.5c0 1.225.474 2.007.9 2.575.09.12.165.216.23.298.102.13.18.228.255.345.101.158.115.233.115.282 0 .34-.126.536-.392.728-.3.217-.708.375-1.25.585l-.13.05c-.55.215-1.233.49-1.767.954C.88 10.821.5 11.524.5 12.5c0 .752.341 1.354.85 1.799.488.427 1.133.717 1.81.92 1.354.406 3.065.531 4.59.531a.75.75 0 0 0 0-1.5c-1.475 0-3.014-.125-4.16-.468-.573-.173-.99-.383-1.252-.612-.242-.211-.338-.422-.338-.67 0-.524.18-.821.446-1.052.309-.269.751-.463 1.326-.687l.159-.061c.493-.19 1.087-.418 1.555-.756C6.064 9.527 6.5 8.91 6.5 8c0-.451-.174-.813-.353-1.093-.112-.173-.265-.37-.397-.537l-.15-.195c-.324-.432-.6-.9-.6-1.675 0-1.586 1.164-2.75 2.75-2.75S10.5 2.914 10.5 4.5c0 .672-.208 1.11-.463 1.484a.75.75 0 1 0 1.24.843A3.96 3.96 0 0 0 12 4.5C12 2.086 10.164.25 7.75.25m7.561 9.247a.75.75 0 0 0-1.122-.994l-2.962 3.34-.896-1.096a.75.75 0 0 0-1.161.95l1.454 1.778a.75.75 0 0 0 1.142.023z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-brown/[0.64] truncate">
+                      Required Approval
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <div class="text-brown/[0.64] truncate">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative cursor-pointer rounded-b-lg bg-[#5218000a] border-1 border-transparent transition-all w-full"
+            >
+              <div class="inner py-2 px-3">
+                <div class="flex flex-start gap-2">
+                  <div class="icon">
+                    <svg
+                      class="w-4 h-4 mt-1 text-brown/[0.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        d="M8 15.5a.75.75 0 0 0 .75-.75V10.5h.041c.872 0 1.609 0 2.159-.08s1.195-.277 1.5-.928c.305-.65.043-1.273-.248-1.746-.29-.474-.762-1.04-1.32-1.71l-.04-.047-.422-.507-.033-.04c-.399-.478-.748-.897-1.072-1.19-.348-.314-.769-.578-1.315-.578s-.966.264-1.315.578c-.324.293-.673.712-1.071 1.19l-.034.04-.422.507-.04.047c-.557.67-1.03 1.236-1.32 1.71-.29.473-.552 1.096-.248 1.746.305.651.95.848 1.5.928s1.288.08 2.16.08h.04v4.25c0 .414.336.75.75.75M4.921 8.85c.046.022.145.057.345.086C5.695 8.998 6.321 9 7.27 9h1.46c.95 0 1.576-.002 2.004-.064.2-.03.3-.064.345-.086a1.3 1.3 0 0 0-.155-.32c-.227-.369-.626-.851-1.234-1.58l-.422-.507c-.442-.53-.723-.865-.958-1.077-.213-.193-.29-.192-.308-.192h-.003c-.02 0-.096 0-.308.192-.235.212-.516.546-.958 1.077l-.423.507c-.608.729-1.007 1.211-1.234 1.58-.106.173-.143.271-.155.32M14 2a.75.75 0 0 0 0-1.5H2A.75.75 0 1 0 2 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-brown/[0.64] truncate">Capacity</div>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <div class="text-brown/[0.64] truncate">Unlimited</div>
+                    <svg
+                    class="w-4 h-4 mt-1 text-brown/[0.36]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      >
+                      <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M10.217 3.22c.354-.354.456-.451.543-.51.42-.28.969-.28 1.389 0 .087.059.189.156.543.51s.45.456.509.543c.28.42.28.968 0 1.389-.058.086-.155.189-.509.543l-.53.53L9.687 3.75zm-1.59 1.59L11.1 7.287l-5.76 5.76a1.25 1.25 0 0 1-.963.363l-.49-.031c-.48-.03-.768-.05-.977-.09-.185-.036-.213-.072-.214-.074-.001 0-.037-.028-.073-.213-.04-.209-.06-.498-.09-.978l-.031-.489a1.25 1.25 0 0 1 .363-.963zm1.3-3.347c-.227.152-.441.366-.719.644l-.052.052-1.06 1.06-6.29 6.291a2.75 2.75 0 0 0-.8 2.12l.03.489.003.042c.027.424.052.81.113 1.124.066.345.191.697.485.99.293.293.645.419.99.485.314.06.7.085 1.124.112l.042.003.489.031a2.75 2.75 0 0 0 2.12-.8l6.29-6.29 1.06-1.06.052-.053c.278-.277.493-.491.644-.718a2.75 2.75 0 0 0 0-3.056c-.151-.226-.366-.44-.644-.718l-.051-.052-.052-.052c-.278-.278-.492-.492-.719-.644a2.75 2.75 0 0 0-3.055 0m.578 11.986a.75.75 0 1 0 0 1.5h4a.75.75 0 1 0 0-1.5z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Create Event Button -->
+          <button
+            class="bg-orange rounded-lg mt-4 py-3 px-4 text-white text-lg font-medium transition-all hover:opacity-85"
+            >
+            Create Event
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
+  
+  
