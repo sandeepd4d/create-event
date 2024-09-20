@@ -100,7 +100,7 @@ const Right = () => {
               <div className="timezone-wrapper">
                 <div className="timezone-icon">
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36]"
+                    className="w-4 h-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -110,10 +110,10 @@ const Right = () => {
                     ></path>
                   </svg>
                 </div>
-                <div className="text-sm font-medium text-brown-950/[0.64]">
+                <div className="text-sm font-medium gmt">
                   GMT+05:30
                 </div>
-                <div className="whitespace-nowrap text-sm truncate text-brown-950/[0.64]">
+                <div className="whitespace-nowrap text-sm truncate gmt-state">
                   Calcutta
                 </div>
               </div>
@@ -122,12 +122,12 @@ const Right = () => {
         </div>
 
         {/* Add Event Location */}
-        <div className="relative cursor-pointer rounded-lg bg-[#5218000a] border-1 border-transparent backdrop-blur-lg transition-all w-full hover:bg-brown-950/[0.08] hover:border-[#5218000a]">
+        <div className="add-event-location">
           <div className="inner py-1.5 px-3">
             <div className="flex flex-start gap-2">
               <div className="icon">
                 <svg
-                  className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                  className="w-4 h-4 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                 >
@@ -145,10 +145,10 @@ const Right = () => {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <div className="text-brown-950/[0.64] font-medium truncate">
+                <div className="location-text font-medium truncate">
                   Add Event Location
                 </div>
-                <div className="truncate text-sm text-brown-950/[0.64]">
+                <div className="virtual-link truncate text-sm">
                   Offline location or virtual link
                 </div>
               </div>
@@ -157,12 +157,12 @@ const Right = () => {
         </div>
 
         {/* Add Description */}
-        <div className="relative cursor-pointer rounded-lg bg-[#5218000a] border-1 border-transparent backdrop-blur-lg transition-all w-full hover:bg-brown-950/[0.08] hover:border-[#5218000a]">
+        <div className="add-description">
           <div className="inner py-1.5 px-3">
             <div className="flex flex-start gap-2">
               <div className="icon">
                 <svg
-                  className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                  className="w-4 h-4 mt-1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                 >
@@ -174,7 +174,7 @@ const Right = () => {
                 </svg>
               </div>
               <div>
-                <div className="text-brown-950/[0.64] font-medium truncate">
+                <div className="description-text font-medium truncate">
                   Add Description
                 </div>
               </div>
@@ -184,15 +184,15 @@ const Right = () => {
 
         {/* Event Options */}
         <div className="event-options">
-          <span className="block font-medium text-brown-950/[0.64] transition-all text-sm mb-1.5">
+          <span className="event-text">
             Event Options
           </span>
-          <div className="relative cursor-pointer rounded-t-lg bg-[#5218000a] border-1 border-transparent transition-all w-full">
+          <div className="event-list-item first-item">
             <div className="inner py-2 px-3">
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                    className="w-4 h-4 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -204,12 +204,12 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="text-brown-950/[0.64] truncate">Tickets</div>
+                  <div className="ticket">Tickets</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="text-brown-950/[0.64] truncate">Free</div>
+                  <div className="free">Free</div>
                   <svg
-                    className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                    className="w-4 h-4 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -223,12 +223,12 @@ const Right = () => {
               </div>
             </div>
           </div>
-          <div className="relative cursor-pointer bg-[#5218000a] border-1 border-transparent transition-all w-full">
+          <div className="event-list-item middle-list-item">
             <div className="inner py-2 px-3">
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                    className="w-4 h-4 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -240,12 +240,12 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="text-brown-950/[0.64] truncate">
+                  <div className="free">
                     Required Approval
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="text-brown-950/[0.64] truncate">
+                  <div className="free">
                     <label className="switch">
                       <input type="checkbox" />
                       <span className="slider"></span>
@@ -255,12 +255,12 @@ const Right = () => {
               </div>
             </div>
           </div>
-          <div className="relative cursor-pointer rounded-b-lg bg-[#5218000a] border-1 border-transparent transition-all w-full">
+          <div className="event-list-item last-item">
             <div className="inner py-2 px-3">
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                    className="w-4 h-4 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -272,14 +272,14 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="text-brown-950/[0.64] truncate">Capacity</div>
+                  <div className="free">Capacity</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="text-brown-950/[0.64] truncate">
+                  <div className="free">
                     Unlimited
                   </div>
                   <svg
-                    className="w-4 h-4 mt-1 text-brown-950/[0.36]"
+                    className="w-4 h-4 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -296,7 +296,7 @@ const Right = () => {
         </div>
 
         {/* Create Event Button */}
-        <Button>Create Event</Button>
+        <Button className="custom-button">Create Event</Button>
       </div>
     </div>
   );

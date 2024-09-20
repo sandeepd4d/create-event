@@ -1,12 +1,13 @@
+import { useTheme } from '@/context/ThemeContext';
 import React from 'react'
 
 const Header = () => {
   return (
-    <header className="">
+    <header>
         <nav className="py-3 px-4 relative flex flex-wrap z-20 gap-2 justify-between items-center w-full">
-          <div className="logo p-1 text-brown-950/[0.36] cursor-pointer group">
+          <div className="logo p-1 text-lightBlack/[0.36] cursor-pointer group">
             <svg
-              className="w-5 h-5 fill-brown-950/[.36] group-hover:fill-black transition-all"
+              className="w-5 h-5 fill-lightBlack/[.36] group-hover:fill-black transition-all"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 133 134"
             >
@@ -18,10 +19,10 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="flex flex-wrap items-center gap-2 text-brown-950/[0.36] font-medium text-sm transition-all hover:text-black"
+                  className={`flex flex-wrap items-center gap-2 text-lightBlack/[0.36] font-medium text-sm transition-all hover:text-black`}
                 >
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36]"
+                    className="w-4 h-4 fill-lightBlack/[.36]"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -37,10 +38,10 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="flex flex-wrap items-center gap-2 text-brown-950/[0.36] font-medium text-sm transition-all hover:text-black"
+                  className="flex flex-wrap items-center gap-2 text-lightBlack/[0.36] font-medium text-sm transition-all hover:text-black"
                 >
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36]"
+                    className="w-4 h-4 fill-lightBlack/[.36]"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -56,10 +57,10 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="flex flex-wrap items-center gap-2 text-brown-950/[0.36] font-medium text-sm transition-all hover:text-black"
+                  className="flex flex-wrap items-center gap-2 text-lightBlack/[0.36] font-medium text-sm transition-all hover:text-black"
                 >
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36]"
+                    className="w-4 h-4 fill-lightBlack/[.36]"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -77,7 +78,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="hidden md:block text-brown-950/[0.36] text-sm font-medium focus-visible:outline-none"
+                  className="hidden cursor-auto md:block text-lightBlack/[0.36] text-sm focus-visible:outline-none"
                 >
                   5:50 PM GMT+5:30
                 </a>
@@ -85,7 +86,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-brown-950/[0.64] text-sm font-medium focus-visible:outline-none"
+                  className="text-lightBlack/[0.64] hover:text-black text-sm font-medium focus-visible:outline-none"
                 >
                   Create Event
                 </a>
@@ -93,10 +94,10 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-brown-950/[0.64] text-sm font-medium focus-visible:outline-none group"
+                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-none group"
                 >
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36] group-hover:fill-black transition-all"
+                    className="w-4 h-4 fill-lightBlack/[.36] group-hover:fill-black transition-all"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -110,10 +111,10 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-brown-950/[0.64] text-sm font-medium focus-visible:outline-none group"
+                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-none group"
                 >
                   <svg
-                    className="w-4 h-4 fill-brown-950/[.36] group-hover:fill-black transition-all"
+                    className="w-4 h-4 fill-lightBlack/[.36] group-hover:fill-black transition-all"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >

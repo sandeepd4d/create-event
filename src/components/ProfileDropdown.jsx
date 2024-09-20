@@ -13,7 +13,7 @@ import {
 import { Button } from "./ui/button";
 import { Globe, Plus, Sparkles } from "lucide-react";
 
-const PublicDropdown = ({ position, setPosition }) => {
+const PorfileDropdown = ({ position, setPosition }) => {
   const [showPublicStatus, setShowPublicStatus] = useState(true);
   const [showPrivateStatus, setShowPrivateStatus] = useState(false);
   return (
@@ -40,22 +40,22 @@ const PublicDropdown = ({ position, setPosition }) => {
           <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
             <DropdownMenuRadioItem value="top">
               <span>
-                <Globe className="mr-3 h-4 w-4" />
+                <Globe className="mr-2 h-4 w-4" />
               </span>
               <div className="flex flex-wrap items-center flex-cols text-lightBlack">
                 <span className="text-sm">Public</span>
-                <span className="text-sm text-lightBlack/[0.36]">
+                <span className="text-sm">
                   Shown on your calendar and eligible to be featured.
                 </span>
               </div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="bottom">
               <span>
-                <Sparkles className="mr-3 h-4 w-4" />
+                <Sparkles className="mr-2 h-4 w-4" />
               </span>
               <div className="flex flex-wrap items-center flex-cols text-lightBlack">
                 <span className="text-sm">Private</span>
-                <span className="text-sm text-lightBlack/[0.36]">
+                <span className="text-sm">
                   Unlisted. Only people with the link can register.
                 </span>
               </div>
@@ -98,4 +98,4 @@ const PublicDropdown = ({ position, setPosition }) => {
   );
 };
 
-export default PublicDropdown;
+export default PorfileDropdown;

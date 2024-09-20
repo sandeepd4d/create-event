@@ -3,15 +3,15 @@ import React from "react";
 
 const UploadImage = () => {
   return (
-    <div className="image-upload group">
+    <div className="image-upload">
       <Image
         aria-hidden
-        src="/rocket.jpg"
+        src="/image.jpg"
         alt="Window icon"
         width={320}
         height={320}
       />
-      <div className="upload-icon group-hover:bg-orange-700">
+      <div className="upload-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
           <path
             fill="white"
