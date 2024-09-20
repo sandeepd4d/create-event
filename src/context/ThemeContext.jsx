@@ -2,7 +2,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
 // Create a ThemeContext
-const ThemeContext = createContext(null);
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children  }) => {
   const [theme, setTheme] = useState("195 152 50");
@@ -44,4 +44,10 @@ export const ThemeProvider = ({ children  }) => {
 };
 
 // Custom hook for using the theme
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+}
