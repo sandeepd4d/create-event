@@ -99,7 +99,7 @@ module.exports = {
       },
       backgroundImage: {
         "moving-radial":
-          "radial-gradient(circle, rgba(197,60,0,0.2) 5%, rgba(197,60,0,0.06) 20%)",
+          "radial-gradient(circle, rgba(var(--primary-color-950),0.2) 5%, rgba(var(--primary-color-950),0.06) 20%)",
       },
       boxShadow: {
         sliderDot: "0 1px 4px rgba(0,0,0,.1)",
@@ -129,46 +129,6 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
-    // plugin(function ({ addUtilities }) {
-    //   addUtilities({
-	// 	'.bg-primary': {
-	// 		backgroundColor: 'var(--primary-color)',
-	// 	  },
-	// 	  '.bg-primary-50': {
-	// 		backgroundColor: 'var(--primary-color-50)',
-	// 	  },
-	// 	  '.bg-primary-100': {
-	// 		backgroundColor: 'var(--primary-color-100)',
-	// 	  },
-	// 	  '.bg-primary-200': {
-	// 		backgroundColor: 'var(--primary-color-200)',
-	// 	  },
-	// 	  '.bg-primary-300': {
-	// 		backgroundColor: 'var(--primary-color-300)',
-	// 	  },
-	// 	  '.bg-primary-400': {
-	// 		backgroundColor: 'var(--primary-color-400)',
-	// 	  },
-	// 	  '.bg-primary-500': {
-	// 		backgroundColor: 'var(--primary-color-500)',
-	// 	  },
-	// 	  '.bg-primary-600': {
-	// 		backgroundColor: 'var(--primary-color-600)',
-	// 	  },
-	// 	  '.bg-primary-700': {
-	// 		backgroundColor: 'var(--primary-color-700)',
-	// 	  },
-	// 	  '.bg-primary-800': {
-	// 		backgroundColor: 'var(--primary-color-800)',
-	// 	  },
-	// 	  '.bg-primary-900': {
-	// 		backgroundColor: 'var(--primary-color-900)',
-	// 	  },
-	// 	  '.bg-primary-950': {
-	// 		backgroundColor: 'var(--primary-color-950)',
-	// 	  },
-    //   });
-    // }),
+    require("tailwindcss-animate")
   ],
 };
