@@ -1,97 +1,73 @@
-import React, { useState } from "react";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuShortcut,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Globe, Plus, Sparkles } from "lucide-react";
+import Image from "next/image";
 
-const PorfileDropdown = ({ position, setPosition }) => {
-  const [showPublicStatus, setShowPublicStatus] = useState(true);
-  const [showPrivateStatus, setShowPrivateStatus] = useState(false);
+const PorfileDropdown = () => {
   return (
     <div className="custom-dropdown w-full sm:w-auto">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="group !mt-0">
-            <Globe className="h-4 w-4" />
-            <span className="text-sm">Public</span>
-            <svg
-              className="w-4 h-4 stroke-brown-950/[0.64] group-hover:stroke-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="m6 9 6 6 6-6"></path>
-            </svg>
+          <Button
+            variant="outline"
+            className="group !mt-0 !rounded-full !w-10 !h-10 overflow-hidden"
+          >
+            <Image
+              aria-hidden
+              src="/avatar_2.png"
+              alt="Window icon"
+              width={24}
+              height={24}
+            />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-80">
-          <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-            <DropdownMenuRadioItem value="top">
-              <span>
-                <Globe className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Public</span>
-                <span className="text-sm">
-                  Shown on your calendar and eligible to be featured.
+        <DropdownMenuContent
+          align="end"
+          className="w-64 !p-0 rounded-lg after:-top-1 after:right-3 after:w-[10px] after:absolute after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-b-4 after:!border-b-white"
+        >
+          <div className="wrap max-w-[95vw] bg-white rounded-lg backdrop-blur-lg shadow-fonts p-1">
+            <DropdownMenuGroup>
+              <DropdownMenuItem className="cursor-pointer">
+                <div className="flex flex-wrap gap-4">
+                  <div className="profile-icon flex flex-wrap items-center justify-center">
+                    <Image
+                      aria-hidden
+                      src="/avatar_2.png"
+                      alt="Window icon"
+                      width={32}
+                      height={32}
+                    />
+                  </div>
+                  <div className="profile-meta">
+                    <div className="text-base font-medium text-lightBlack capitalize">
+                      Sandeep Kamra
+                    </div>
+                    <div className="text-[13px] text-lightBlack/[0.36]">
+                      sandeep.d4d@gmail.com
+                    </div>
+                  </div>
+                </div>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="cursor-pointer">
+                <span className="text-sm text-lightBlack/[0.64]">
+                  View Profile
                 </span>
-              </div>
-            </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="bottom">
-              <span>
-                <Sparkles className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Private</span>
-                <span className="text-sm">
-                  Unlisted. Only people with the link can register.
-                </span>
-              </div>
-            </DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-
-          {/* <DropdownMenuGroup>
-            <DropdownMenuCheckboxItem
-              checked={showPublicStatus}
-              onCheckedChange={setShowPublicStatus}
-            >
-              <span>
-                <Globe className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Public</span>
-                <span className="text-sm">
-                  Shown on your calendar and eligible to be featured.
-                </span>
-              </div>
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={showPrivateStatus}
-              onCheckedChange={setShowPrivateStatus}
-            >
-              <span>
-                <Sparkles className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Private</span>
-                <span className="text-sm">
-                  Unlisted. Only people with the link can register.
-                </span>
-              </div>
-            </DropdownMenuCheckboxItem>
-          </DropdownMenuGroup> */}
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
+                <span className="text-sm text-lightBlack/[0.64]">Settings</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
+                <span className="text-sm text-lightBlack/[0.64]">Sign Out</span>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </div>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

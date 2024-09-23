@@ -6,6 +6,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children  }) => {
   const [theme, setTheme] = useState("195 152 50");
+  const [font, setFont] = useState('system-ui');
 
   const adjustTheme = (value) => {
     setTheme(value?.rgb);
@@ -26,6 +27,10 @@ export const ThemeProvider = ({ children  }) => {
       document.documentElement.style.setProperty(`--primary-color-${key}`, shades[key]);
     });
   }
+  function changeFontFamily(fontType) {
+      setFont(fontType);
+      document.documentElement.style.setProperty('--font-mono', fontType);
+  }
 
   function shadeColor(hex, percent) {
   // Adjust RGB values based on the percentage (lighten or darken)
@@ -37,7 +42,7 @@ export const ThemeProvider = ({ children  }) => {
 }
 
   return (
-    <ThemeContext.Provider value={{ theme, adjustTheme }}>
+    <ThemeContext.Provider value={{ theme, adjustTheme, changeFontFamily, font, setFont }}>
       {children}
     </ThemeContext.Provider>
   );

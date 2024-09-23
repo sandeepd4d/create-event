@@ -10,40 +10,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      maxWidth: {
-        cxl: "960px",
+      screens: {
+        'xxs': '479px',
+      },
+      fontFamily: {
+        'mono': ['var(--font-mono)'],
       },
       colors: {
         secondary: "var(--secondary-color)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         lightBlack: "#131517",
-        brown: {
-          50: "#fff0f0",
-          100: "#ffdddd",
-          200: "#ffc1c1",
-          300: "#ff9696",
-          400: "#ff5a5a",
-          500: "#ff2727",
-          600: "#fb0707",
-          700: "#d40101",
-          800: "#ae0606",
-          900: "#900c0c",
-          950: "#490000",
-        },
-        orange: {
-          50: "#fff7ec",
-          100: "#ffeed2",
-          200: "#ffd8a4",
-          300: "#ffbc6b",
-          400: "#ff942f",
-          500: "#ff7307",
-          600: "#f95600",
-          700: "#c53c00",
-          800: "#a33209",
-          900: "#832c0b",
-          950: "#471303",
-        },
         primary: {
           DEFAULT: "var(--primary-color)",
           50: "var(--primary-color-50)",
@@ -103,7 +80,8 @@ module.exports = {
       },
       boxShadow: {
         sliderDot: "0 1px 4px rgba(0,0,0,.1)",
-		drawer:"0 1px 4px rgba(0,0,0,.1)"
+        fonts:'rgba(0, 0, 0, 0.02) 0px 0.7px 2.7px 0px, rgba(0, 0, 0, 0.03) 0px 1.7px 6.9px 0px, rgba(0, 0, 0, 0.04) 0px 3.5px 14.2px 0px, rgba(0, 0, 0, 0.05) 0px 7.3px 29.2px 0px, rgba(0, 0, 0, 0.06) 0px 20px 80px 0px',
+		    drawer:"0 1px 4px rgba(0,0,0,.1)"
       },
       keyframes: {
         move: {

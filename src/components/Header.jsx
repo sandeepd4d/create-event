@@ -1,5 +1,6 @@
 import { useTheme } from '@/context/ThemeContext';
 import React from 'react'
+import PorfileDropdown from './ProfileDropdown';
 
 const Header = () => {
   return (
@@ -124,6 +125,9 @@ const Header = () => {
                     ></path>
                   </svg>
                 </a>
+              </li>
+              <li>
+                <PorfileDropdown />
               </li>
             </ul>
           </div>

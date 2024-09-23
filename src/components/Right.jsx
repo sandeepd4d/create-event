@@ -20,6 +20,7 @@ const Right = () => {
           autoCapitalize="words"
           spellCheck="false"
           autoFocus
+          className="font-mono"
         ></textarea>
       </div>
 
@@ -127,7 +128,7 @@ const Right = () => {
             <div className="flex flex-start gap-2">
               <div className="icon">
                 <svg
-                  className="w-4 h-4 mt-1"
+                  className="w-4 h-4 mt-1 svg-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                 >
@@ -162,7 +163,7 @@ const Right = () => {
             <div className="flex flex-start gap-2">
               <div className="icon">
                 <svg
-                  className="w-4 h-4 mt-1"
+                  className="w-4 h-4 mt-1 svg-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                 >
@@ -192,7 +193,7 @@ const Right = () => {
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1"
+                    className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -204,12 +205,12 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="ticket">Tickets</div>
+                  <div className="ticket truncate">Tickets</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="free">Free</div>
+                  <div className="free truncate">Free</div>
                   <svg
-                    className="w-4 h-4 mt-1"
+                    className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -228,7 +229,7 @@ const Right = () => {
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1"
+                    className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -240,12 +241,12 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="free">
+                  <div className="free truncate">
                     Required Approval
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="free">
+                  <div className="free truncate">
                     <label className="switch">
                       <input type="checkbox" />
                       <span className="slider"></span>
@@ -260,7 +261,7 @@ const Right = () => {
               <div className="flex flex-start gap-2">
                 <div className="icon">
                   <svg
-                    className="w-4 h-4 mt-1"
+                    className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -272,14 +273,14 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="free">Capacity</div>
+                  <div className="free truncate">Capacity</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="free">
+                  <div className="free truncate">
                     Unlimited
                   </div>
                   <svg
-                    className="w-4 h-4 mt-1"
+                    className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                   >
@@ -296,7 +297,7 @@ const Right = () => {
         </div>
 
         {/* Create Event Button */}
-        <Button className="custom-button">Create Event</Button>
+        <Button className="custom-button px-5 leading-5">Create Event</Button>
       </div>
     </div>
   );
