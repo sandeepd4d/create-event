@@ -201,7 +201,7 @@ const ChangeThemeButton = () => {
                   <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-4">
                     {fontFamily?.length > 0 &&
                       fontFamily?.map((font) => {
-                        return <FontBlock data={font} setSelected={setSelected} selected={selected} />;
+                        return <FontBlock key={font?.id} data={font} setSelected={setSelected} selected={selected} />;
                       })}
                   </div>
                 </DropdownMenuContent>
