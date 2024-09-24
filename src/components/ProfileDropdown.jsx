@@ -16,7 +16,7 @@ const PorfileDropdown = () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="outline"
-            className="group !mt-0 !rounded-full !w-10 !h-10 overflow-hidden"
+            className="group !mt-0 !rounded-full !w-8 !h-8 xxs:!w-10 xxs:!h-10 overflow-hidden !p-1 xxs:!py-1.5 xxs:!px-2"
           >
             <Image
               aria-hidden

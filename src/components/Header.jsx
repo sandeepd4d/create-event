@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
         <nav className="py-3 px-4 relative flex flex-wrap z-20 gap-2 justify-between items-center w-full">
-          <div className="logo p-1 text-lightBlack/[0.36] cursor-pointer group">
+          <div className="logo xxs:p-1 text-lightBlack/[0.36] cursor-pointer group">
             <svg
               className="w-5 h-5 fill-lightBlack/[.36] group-hover:fill-black transition-all"
               xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ const Header = () => {
             </svg>
           </div>
           <div className="header-right flex items-center justify-between flex-1 min-w-0">
-            <ul className="flex flex-wrap items-center gap-5 px-4">
+            <ul className="flex flex-wrap items-center gap-2 xxs:gap-5 px-1 xxs:px-4">
               <li>
                 <a
                   href=""
@@ -75,11 +75,11 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            <ul className="flex flex-wrap items-center gap-5">
-              <li>
+            <ul className="flex flex-wrap items-center gap-2 xxs:gap-5">
+              <li className='hidden md:block'>
                 <a
                   href=""
-                  className="hidden cursor-auto md:block text-lightBlack/[0.36] text-sm focus-visible:outline-none"
+                  className="cursor-auto text-lightBlack/[0.36] text-sm focus-visible:outline-none"
                 >
                   5:50 PM GMT+5:30
                 </a>
@@ -87,7 +87,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-lightBlack/[0.64] hover:text-black text-sm font-medium focus-visible:outline-none"
+                  className="truncate text-lightBlack/[0.64] hover:text-black text-sm font-medium focus-visible:outline-none"
                 >
                   Create Event
                 </a>
