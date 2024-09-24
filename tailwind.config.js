@@ -16,6 +16,10 @@ module.exports = {
       fontFamily: {
         'mono': ['var(--font-mono)'],
       },
+      fontSize: {
+        28: ['28px', '32px'],
+        40: ['40px', '44px'],
+      },
       colors: {
         secondary: "var(--secondary-color)",
         background: "hsl(var(--background))",

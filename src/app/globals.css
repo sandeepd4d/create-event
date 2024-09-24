@@ -126,7 +126,7 @@
   @apply h-14 font-semibold text-[40px] leading-[44px] flex;
 }
 .right-side .name-input-wrapper textarea {
-  @apply overflow-hidden border-0 bg-transparent p-0 font-semibold text-[40px] w-full resize-none focus-visible:outline-0;
+  @apply overflow-hidden border-0 bg-transparent p-0 font-semibold text-28 sm:text-40 w-full resize-none focus-visible:outline-0;
   color: rgba(var(--primary-color-950), 1);
 }
 .right-side .name-input-wrapper textarea::placeholder {
@@ -282,12 +282,14 @@ input:checked + .slider:before {
 .custom-dropdown button span {
   @apply mr-auto;
 }
-.custom-dropdown button[aria-expanded="true"],
-.custom-dropdown button:hover {
+.custom-dropdown:not(.profile-menu) button[aria-expanded="true"],
+.custom-dropdown:not(.profile-menu) button:hover {
   background-color: rgba(var(--primary-color-950), 0.64);
   border-color: rgba(var(--primary-color-950), 0.64);
   color: rgba(255, 255, 255, 1);
 }
+.custom-dropdown.profile-menu button {background-color: transparent;}
+.custom-dropdown.profile-menu button[aria-expanded="true"] {background-color: rgba(var(--primary-color-950), 0.04);}
 .color-wrap .circle {
   background-color: rgba(var(--primary-color-500), 1);
 }

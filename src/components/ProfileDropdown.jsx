@@ -11,11 +11,12 @@ import Image from "next/image";
 
 const PorfileDropdown = () => {
   return (
-    <div className="custom-dropdown w-full sm:w-auto">
+    <div className="custom-dropdown profile-menu w-full sm:w-auto">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant="outline"
+            variant={null}
+            size={null}
             className="group !mt-0 !rounded-full !w-8 !h-8 xxs:!w-10 xxs:!h-10 overflow-hidden !p-1 xxs:!py-1.5 xxs:!px-2"
           >
             <Image
