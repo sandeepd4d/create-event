@@ -14,7 +14,7 @@ const FontBlock = ({data, selected, setSelected}) => {
       }}
     >
       <div className="icon-wrapper">
-        <div className={`text-3xl pb-2 font-medium font-${data?.type}`}>Ag</div>
+        <div className={`text-3xl pb-2 font-medium`}>Ag</div>
       </div>
       <div className="text-wrap">
         {data?.label}
