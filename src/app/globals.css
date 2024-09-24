@@ -14,7 +14,15 @@
     --primary-color-900: 113, 29, 32;
     --primary-color-950: 63, 9, 11;
 
-    --font-mono: [ "ui-sans-serif, system-ui"];
+    --font-mono: "system-ui";
+    --font-vt: "VT323";
+    --font-noto: "Noto Sans Mono";
+    --font-space: "Space Mono";
+    --font-rubik: "Rubik Mono One";
+    --font-roboto: "Roboto Mono";
+    --font-ubuntu: "'Ubuntu Sans Mono', system-ui";
+    --font-syne: "Syne Mono";
+    --font-pro: "Anonymous Pro";
 
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -339,8 +347,8 @@ div[data-state="closed"][data-vaul-snap-points-overlay="false"],
 div[data-state="open"][data-vaul-snap-points-overlay="true"] {
   @apply !bg-white/[0.2];
 }
-/* [data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=closed],
-[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=open] {animation:none!important; transform: translate3d(0, 0, 0);} */
+[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=closed],
+[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=open] {transition:transform!important; animation:none!important; transform: translate3d(0, 0, 0)!important;}
 [data-vaul-drawer][data-vaul-drawer-direction=bottom]::after{display: none;}
 .font-wrapper {
   @apply text-lightBlack/[0.32] border border-transparent cursor-pointer;

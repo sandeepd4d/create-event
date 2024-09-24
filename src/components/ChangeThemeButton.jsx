@@ -13,17 +13,17 @@ import FontBlock from "./FontBlock";
 const ChangeThemeButton = () => {
   const { theme, adjustTheme } = useTheme();
   const [selected, setSelected] = useState("default");
-  const [fontFamily, setFontFamily] = useState([
-    { id: 1, font: "ui-sans-serif", label: "default" },
-    { id: 2, font: "'VT323', monospace", label: "VT323" },
-    { id: 3, font: "'Noto Sans Mono', monospace", label: "Noto Sans" },
-    { id: 4, font: "'Space Mono', monospace", label: "Space Mono" },
-    { id: 5, font: "'Rubik Mono One', monospace", label: "Rubik One" },
-    { id: 6, font: "'Roboto Mono', monospace", label: "Roboto Mono" },
-    { id: 7, font: "'Ubuntu Sans Mono', system-ui", label: "Ubuntu Sans" },
-    { id: 8, font: "'Syne Mono', monospace", label: "Syne Mono" },
-    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro" },
-  ]);
+  const fontFamily = [
+    { id: 1, font: "system-ui", label: "default", type:'mono' },
+    { id: 2, font: "'VT323', monospace", label: "VT323", type:'vt' },
+    { id: 3, font: "'Noto Sans Mono', monospace", label: "Noto Sans", type:'noto' },
+    { id: 4, font: "'Space Mono', monospace", label: "Space Mono", type:'space' },
+    { id: 5, font: "'Rubik Mono One', monospace", label: "Rubik One", type:'rubik' },
+    { id: 6, font: "'Roboto Mono', monospace", label: "Roboto Mono", type:'roboto' },
+    { id: 7, font: "'Ubuntu Sans Mono', system-ui", label: "Ubuntu Sans", type:'ubuntu' },
+    { id: 8, font: "'Syne Mono', monospace", label: "Syne Mono", type:'syne' },
+    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro", type:'pro' },
+  ];
 
   return (
     <>
@@ -203,11 +203,11 @@ const ChangeThemeButton = () => {
                 >
                   <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-3">
                     {fontFamily?.length > 0 &&
-                      fontFamily?.map((font) => {
+                      fontFamily?.map((family) => {
                         return (
                           <FontBlock
-                            key={font?.id}
-                            data={font}
+                            key={family?.id}
+                            data={family}
                             setSelected={setSelected}
                             selected={selected}
                           />
@@ -236,7 +236,7 @@ const ChangeThemeButton = () => {
                               viewBox="0 0 16 16"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M2 8.024A6.024 6.024 0 0 1 8.024 2v12.048A6.024 6.024 0 0 1 2 8.024M8.024.5a7.524 7.524 0 1 0 0 15.048A7.524 7.524 0 0 0 8.024.5"
                               ></path>
                             </svg>

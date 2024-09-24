@@ -15,6 +15,14 @@ module.exports = {
       },
       fontFamily: {
         'mono': ['var(--font-mono)'],
+        'vt323': ['var(--font-vt323)'],
+        'noto': ['var(--font-noto)'],
+        'space': ['var(--font-space)'],
+        'rubik': ['var(--font-rubik)'],
+        'roboto': ['var(--font-roboto)'],
+        'ubuntu': ['var(--font-ubuntu)'],
+        'syne': ['var(--font-syne)'],
+        'pro': ['var(--font-pro)'],
       },
       fontSize: {
         28: ['28px', '32px'],
