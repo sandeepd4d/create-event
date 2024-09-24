@@ -5,15 +5,15 @@ const FontBlock = ({data, selected, setSelected}) => {
     const { changeFontFamily } = useTheme();
   return (
     <div
-      className={`text-lightBlack/[0.32] border border-transparent ${
+      className={`font-wrapper  ${
         selected === data?.label ? "selected" : ""
-      } cursor-pointer group`}
+      }`}
       onClick={() => {
         changeFontFamily(data?.font);
         setSelected(data?.label);
       }}
     >
-      <div className="icon-wrapper border-2 border-lightBlack/[0.08] rounded-lg py-1.5 px-2 flex items-center justify-center w-full group-hover:border-lightBlack/[0.64] group-hover:text-lightBlack/[0.64] transition-all">
+      <div className="icon-wrapper">
         <svg
           className="w-16.5 h-16.5"
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const FontBlock = ({data, selected, setSelected}) => {
           ></path>
         </svg>
       </div>
-      <div className="capitalize text-xs text-center w-full whitespace-nowrap mt-1 group-hover:border-lightBlack/[0.64] group-hover:text-lightBlack/[0.64] transition-all">
+      <div className="text-wrap">
         {data?.label}
       </div>
     </div>

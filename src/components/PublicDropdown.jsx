@@ -1,26 +1,19 @@
-import React, { useState } from "react";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Globe, Plus, Sparkles } from "lucide-react";
+import { Globe, Sparkles } from "lucide-react";
 
 const PublicDropdown = ({ position, setPosition }) => {
-  const [showPublicStatus, setShowPublicStatus] = useState(true);
-  const [showPrivateStatus, setShowPrivateStatus] = useState(false);
   return (
-    <div className="custom-dropdown w-full sm:w-auto">
+    <div className="custom-dropdown w-full xxs:w-auto">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="group !mt-0">
+          <Button variant={null} size={null} className="group !mt-0 !h-auto">
             <Globe className="h-4 w-4" />
             <span className="text-sm">Public</span>
             <svg
@@ -39,7 +32,7 @@ const PublicDropdown = ({ position, setPosition }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-80">
           <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-            <DropdownMenuRadioItem value="top">
+            <DropdownMenuRadioItem value="top" className="dropdown-menu-item dropdown-public">
               <span>
                 <Globe className="mr-3 h-4 w-4" />
               </span>
@@ -50,7 +43,7 @@ const PublicDropdown = ({ position, setPosition }) => {
                 </span>
               </div>
             </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="bottom">
+            <DropdownMenuRadioItem value="bottom" className="dropdown-menu-item dropdown-public">
               <span>
                 <Sparkles className="mr-3 h-4 w-4" />
               </span>
@@ -62,37 +55,6 @@ const PublicDropdown = ({ position, setPosition }) => {
               </div>
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
-
-          {/* <DropdownMenuGroup>
-            <DropdownMenuCheckboxItem
-              checked={showPublicStatus}
-              onCheckedChange={setShowPublicStatus}
-            >
-              <span>
-                <Globe className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Public</span>
-                <span className="text-sm">
-                  Shown on your calendar and eligible to be featured.
-                </span>
-              </div>
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={showPrivateStatus}
-              onCheckedChange={setShowPrivateStatus}
-            >
-              <span>
-                <Sparkles className="mr-2 h-4 w-4" />
-              </span>
-              <div className="flex flex-wrap items-center flex-cols text-lightBlack">
-                <span className="text-sm">Private</span>
-                <span className="text-sm">
-                  Unlisted. Only people with the link can register.
-                </span>
-              </div>
-            </DropdownMenuCheckboxItem>
-          </DropdownMenuGroup> */}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

@@ -3,18 +3,18 @@
   :root {
     --primary-color: 237, 43, 50;
     --primary-color-50: 254, 241, 242;
-    --primary-color-100: 253,223, 224;
+    --primary-color-100: 253, 223, 224;
     --primary-color-200: 257, 197, 199;
     --primary-color-300: 248, 156, 159;
-    --primary-color-400: 244,100,106;
+    --primary-color-400: 244, 100, 106;
     --primary-color-500: 237, 43, 50;
-    --primary-color-600: 218,37,44;
-    --primary-color-700: 168,27,33;
-    --primary-color-800: 139,26,30;
-    --primary-color-900: 113,29,32;
-    --primary-color-950: 63,9,11;
+    --primary-color-600: 218, 37, 44;
+    --primary-color-700: 168, 27, 33;
+    --primary-color-800: 139, 26, 30;
+    --primary-color-900: 113, 29, 32;
+    --primary-color-950: 63, 9, 11;
 
-    --font-mono: ['ui-sans-serif, system-ui'];
+    --font-mono: [ "ui-sans-serif, system-ui"];
 
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -48,8 +48,15 @@
     @apply border-border;
   }
   body {
-    background-color: rgba(var(--primary-color-500),0.08);    
+    background-color: rgba(var(--primary-color-500), 0.08);
   }
+  html {
+    padding-right: 0 !important;
+  }
+  /* html body[data-scroll-locked="1"] {
+     overflow: scroll !important; 
+     margin-right: 0 !important; 
+  } */
 }
 @tailwind components;
 @tailwind utilities;
@@ -57,11 +64,13 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  } 
+  }
   .not-first-not-last {
     @apply bg-gray-500;
   }
-  .cxl {max-width: 960px;}
+  .cxl {
+    max-width: 960px;
+  }
 }
 /***************************************************************************/
 
@@ -77,36 +86,35 @@
   @apply w-96 mx-auto md:w-60 lg:w-80 flex flex-wrap flex-col gap-6 max-w-full;
 }
 .left-side .image-upload {
-  @apply rounded-xl overflow-hidden w-96 md:w-60 lg:w-80 h-96 md:h-60 lg:h-80 relative cursor-pointer max-w-full;
+  @apply rounded-xl overflow-hidden w-96 md:w-60 lg:w-80 md:h-60 lg:h-80 relative cursor-pointer max-w-full;
+  padding-bottom: 100%;
+}
+.left-side .image-upload img {
+  @apply absolute h-full md:h-auto object-cover md:object-none object-center w-full md:w-auto;
 }
 .left-side .upload-icon {
   @apply w-9 h-9 rounded-full border-2 border-white absolute right-2 bottom-2 z-50 p-2 transition-all;
-  background-color: rgba(var(--primary-color-950),1);
+  background-color: rgba(var(--primary-color-950), 1);
 }
-.left-side .image-upload:hover .upload-icon {
-  background-color:rgba(var(--primary-color-600),1)
-}
+
 .change-theme-button {
   @apply flex flex-wrap items-center gap-2 w-full transition-all px-3 py-2 rounded-lg border border-transparent;
-  background-color: rgba(var(--primary-color-950),0.04);
+  background-color: rgba(var(--primary-color-950), 0.04);
 }
-.change-theme-button:hover {
-  background-color: rgba(var(--primary-color-950),0.08);
-  border-color:rgba(var(--primary-color-950), 0.04);
-}
+
 .change-theme-button .button-text-wrap {
   @apply flex flex-wrap flex-col ms-1 flex-1 text-start border border-transparent;
 }
 .change-theme-button .theme-text {
-  color:rgba(var(--primary-color-950), 0.36);
+  color: rgba(var(--primary-color-950), 0.36);
   @apply text-xs;
 }
 .change-theme-button .theme-type {
   @apply text-base font-medium leading-5;
-  color: rgba(var(--primary-color-950),1)
+  color: rgba(var(--primary-color-950), 1);
 }
 .change-theme-button .edit-theme-icon {
-  fill: rgba(var(--primary-color-950),0.36);
+  fill: rgba(var(--primary-color-950), 0.36);
 }
 /* done */
 
@@ -118,26 +126,26 @@
   @apply h-14 font-semibold text-[40px] leading-[44px] flex;
 }
 .right-side .name-input-wrapper textarea {
-  @apply overflow-hidden border-0 bg-transparent p-0 font-semibold text-[40px] w-full resize-none focus-visible:outline-0; 
-  color:rgba(var(--primary-color-950),1)
+  @apply overflow-hidden border-0 bg-transparent p-0 font-semibold text-[40px] w-full resize-none focus-visible:outline-0;
+  color: rgba(var(--primary-color-950), 1);
 }
 .right-side .name-input-wrapper textarea::placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 .right-side .name-input-wrapper textarea:-moz-placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 .right-side .name-input-wrapper textarea::-moz-placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 .right-side .name-input-wrapper textarea:-ms-input-placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 .right-side .name-input-wrapper textarea::-ms-input-placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 .right-side .name-input-wrapper textarea::-webkit-input-placeholder {
-  color: rgba(var(--primary-color-950),0.30);
+  color: rgba(var(--primary-color-950), 0.3);
 }
 
 .event-options {
@@ -151,11 +159,11 @@
 }
 .slider {
   @apply rounded-xl absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition-all before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[2px] before:bottom-[2px] before:rounded-xl before:bg-white before:transition-all before:shadow-sliderDot;
-  background-color: rgba(var(--primary-color-600),0.16);
+  background-color: rgba(var(--primary-color-600), 0.16);
 }
 
 .switch input:checked + .slider {
-  background-color: rgba(var(--primary-color-600),1);
+  background-color: rgba(var(--primary-color-600), 1);
 }
 
 input:checked + .slider:before {
@@ -164,7 +172,7 @@ input:checked + .slider:before {
   transform: translateX(12px);
 }
 .svg-icon {
-  color:rgba(var(--primary-color-950),0.36)
+  color: rgba(var(--primary-color-950), 0.36);
 }
 
 /* Date Time Wrapper */
@@ -174,101 +182,198 @@ input:checked + .slider:before {
 }
 .timeline {
   @apply absolute top-7 bottom-7 left-5 border-l border-dashed;
-  border-color: rgba(var(--primary-color-950),0.2)
+  border-color: rgba(var(--primary-color-950), 0.2);
 }
 .dot {
   @apply me-3 ms-1 w-2.5 h-2.5 shrink-0 rounded-full;
-  background-color: rgba(var(--primary-color-950),0.2)
+  background-color: rgba(var(--primary-color-950), 0.2);
 }
 .end-date .dot {
   @apply bg-transparent border;
-  border-color: rgba(var(--primary-color-950),0.2)
+  border-color: rgba(var(--primary-color-950), 0.2);
 }
 .label {
   @apply w-16 whitespace-nowrap flex-1;
-  color: rgba(var(--primary-color-950),0.64)
+  color: rgba(var(--primary-color-950), 0.64);
 }
 .time-input,
 .date-input {
-  background-color: rgba(var(--primary-color-950),0.04);
-  @apply border border-solid border-transparent rounded-l border-e-0 transition-all flex-1 flex items-center;
+  background-color: rgba(var(--primary-color-950), 0.04);
+  @apply border border-solid border-transparent rounded-l-lg border-e-0 transition-all flex-1 flex items-center;
 }
 .time-input {
-  @apply !rounded-r;
+  @apply !rounded-l-none !rounded-r-lg;
 }
 .divider {
   @apply w-1 bg-transparent transition-all;
 }
 .date-input input[type="text"],
 .time-input input[type="text"] {
-  @apply min-w-0 h-8 px-2 text-base bg-transparent w-full border-0 border-transparent rounded text-start items-center transition-all focus-visible:outline-none focus-visible:outline-offset-0;
-  color: rgba(var(--primary-color-950),1)
+  @apply min-w-0 h-8 px-2 text-base font-medium bg-transparent w-full border-0 border-transparent rounded text-start items-center transition-all focus-visible:outline-none focus-visible:outline-offset-0;
+  color: rgba(var(--primary-color-950), 1);
 }
 .timezone {
   @apply border border-transparent overflow-hidden rounded-lg backdrop-blur-lg transition;
-  background-color:rgba(var(--primary-color-950), 0.04);
+  background-color: rgba(var(--primary-color-950), 0.04);
 }
-.timezone:hover {border-color: rgba(var(--primary-color-950), 0.04); background-color: rgba(var(--primary-color-950),0.08)}
+
 .timezone-inner {
   @apply h-full cursor-pointer inline-flex outline-0 w-full;
 }
 .timezone-wrapper {
   @apply flex flex-col h-full w-36 py-2 px-2.5;
-  color: rgba(var(--primary-color-950),0.64);
+  color: rgba(var(--primary-color-950), 0.64);
 }
 .timezone-icon {
   @apply mb-1.5;
 }
+.add-event-time,
 .add-event-location {
-  background-color:rgba(var(--primary-color-950),0.04);
+  background-color: rgba(var(--primary-color-950), 0.04);
   @apply relative cursor-pointer rounded-lg border border-transparent backdrop-blur-lg transition-all w-full;
 }
 .gmt-state,
 .gmt,
 .free,
 .ticket,
+.add-event-time .virtual-link,
 .add-event-location .virtual-link,
 .add-description .description-text,
-.add-event-location .location-text {color:rgba(var(--primary-color-950),0.64)}
-.add-event-location:hover {background-color:rgba(var(--primary-color-950),0.08); border-color:rgba(var(--primary-color-950),0.08)}
-
-.add-description {
-  background-color:rgba(var(--primary-color-950),0.04);
-  @apply relative cursor-pointer rounded-lg border border-transparent backdrop-blur-lg transition-all w-full
+.add-event-location .location-text {
+  color: rgba(var(--primary-color-950), 0.64);
+}
+.add-event-time .location-text {
+  color: rgba(var(--primary-color-950), 1);
 }
 
-.add-description:hover {background-color:rgba(var(--primary-color-950),0.08); border-color:rgba(var(--primary-color-950),0.08)}
+.add-description {
+  background-color: rgba(var(--primary-color-950), 0.04);
+  @apply relative cursor-pointer rounded-lg border border-transparent backdrop-blur-lg transition-all w-full;
+}
 
-.timezone-icon svg {fill:rgba(var(--primary-color-950),0.36)}
+.timezone-icon svg {
+  fill: rgba(var(--primary-color-950), 0.36);
+}
 
 .event-options .event-text {
   @apply block font-medium transition-all text-sm mb-1.5;
-  color:rgba(var(--primary-color-950),0.64);
+  color: rgba(var(--primary-color-950), 0.64);
 }
 .event-options .event-list-item {
   @apply relative cursor-pointer transition-all w-full;
   background-color: rgba(var(--primary-color-950), 0.04);
 }
-.event-options .event-list-item.first-item {@apply rounded-t-lg;}
-.event-options .event-list-item.last-item {@apply rounded-b-lg;}
-.event-options .middle-list-item {@apply border-y; border-color: rgba(var(--primary-color-950),0.04)}
+.event-options .event-list-item.first-item {
+  @apply rounded-t-lg;
+}
+.event-options .event-list-item.last-item {
+  @apply rounded-b-lg;
+}
+.event-options .middle-list-item {
+  @apply border-y;
+  border-color: rgba(var(--primary-color-950), 0.04);
+}
 
 .custom-dropdown button {
-  @apply flex flex-wrap items-center w-full sm:w-auto py-1.5 px-2 rounded-lg gap-2 transition-all outline-0 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
-  background-color: rgba(var(--primary-color-950),0.04);
-  color:rgba(var(--primary-color-950),0.64)
+  @apply flex flex-wrap items-center justify-between w-full sm:w-auto py-1.5 px-2 rounded-lg gap-2 transition-all outline-0 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
+  background-color: rgba(var(--primary-color-950), 0.04);
+  color: rgba(var(--primary-color-950), 0.64);
+}
+.custom-dropdown button span {
+  @apply mr-auto;
 }
 .custom-dropdown button[aria-expanded="true"],
-.custom-dropdown button:hover {background-color: rgba(var(--primary-color-950),0.64); border-color:rgba(var(--primary-color-950),0.64); color:rgba(255,255,255,1)}
+.custom-dropdown button:hover {
+  background-color: rgba(var(--primary-color-950), 0.64);
+  border-color: rgba(var(--primary-color-950), 0.64);
+  color: rgba(255, 255, 255, 1);
+}
 .color-wrap .circle {
-background-color: rgba(var(--primary-color-500),1)
+  background-color: rgba(var(--primary-color-500), 1);
 }
 .custom-dropdown button[aria-expanded="true"] svg {
   @apply stroke-white;
 }
 .custom-button {
-  background-color: rgba(var(--primary-color-600),1);
-  @apply text-white;
+  background-color: rgba(var(--primary-color-600), 1);
 }
-.custom-button:hover {background-color: rgba(var(--primary-color-600),0.85);}
-.selected > div {@apply border-lightBlack text-lightBlack;}
+.custom-button.disabled {
+  background-color: rgba(var(--primary-color-600), 0.85);
+}
+
+.selected > div {
+  @apply border-lightBlack text-lightBlack;
+}
+.dropdown-menu-item {
+  @apply pl-2 pr-10 text-base;
+}
+.dropdown-menu-item > span span {
+  @apply hidden;
+}
+.dropdown-menu-item.dropdown-calendar > span:first-child {
+  @apply w-4 h-4;
+}
+.dropdown-menu-item.dropdown-public > span:first-child {
+  @apply w-5 h-5;
+}
+.dropdown-menu-item > span:first-child {
+  @apply inline-block left-auto right-2 after:content-[''] after:right-2 after:left-0 after:absolute after:top-0 after:w-full after:h-full;
+}
+.dropdown-menu-item.dropdown-calendar[aria-checked="true"]
+  > span:first-child:after {
+  background-image: url("/tick.png");
+  background-size: 16px;
+}
+.dropdown-menu-item.dropdown-public[aria-checked="true"]
+  > span:first-child:after {
+  background-image: url("/tick-2.png");
+  background-size: 20px;
+}
+.dropdown-menu-label {
+  @apply text-lightBlack/[0.36] px-2.5 py-1 text-xs;
+}
+div[data-state="closed"][data-vaul-snap-points-overlay="false"],
+div[data-state="open"][data-vaul-snap-points-overlay="true"] {
+  @apply !bg-white/[0.2];
+}
+.drawer-drag-bar {
+  display: none;
+}
+.font-wrapper {
+  @apply text-lightBlack/[0.32] border border-transparent cursor-pointer;
+}
+.icon-wrapper {
+  @apply border-2 border-lightBlack/[0.08] rounded-lg py-1.5 px-2 flex items-center justify-center w-full transition-all;
+}
+.text-wrap {
+  @apply capitalize text-xs text-center w-full whitespace-nowrap mt-1 transition-all;
+}
+@media (hover: hover) {
+  .timezone:hover {
+    border-color: rgba(var(--primary-color-950), 0.04);
+    background-color: rgba(var(--primary-color-950), 0.08);
+  }
+  .left-side .image-upload:hover .upload-icon {
+    background-color: rgba(var(--primary-color-600), 1);
+  }
+  .change-theme-button:hover {
+    background-color: rgba(var(--primary-color-950), 0.08);
+    border-color: rgba(var(--primary-color-950), 0.04);
+  }
+  .add-event-time:hover,
+  .add-event-location:hover {
+    background-color: rgba(var(--primary-color-950), 0.08);
+    border-color: rgba(var(--primary-color-950), 0.08);
+  }
+  .add-description:hover {
+    background-color: rgba(var(--primary-color-950), 0.08);
+    border-color: rgba(var(--primary-color-950), 0.08);
+  }
+  .custom-button:hover {
+    background-color: rgba(var(--primary-color-600), 0.85);
+  }
+  .font-wrapper:hover .text-wrap,
+  .font-wrapper:hover .icon-wrapper {
+    @apply border-lightBlack/[0.64] text-lightBlack/[0.64];
+  }
+}

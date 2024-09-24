@@ -22,7 +22,7 @@ const ChangeThemeButton = () => {
     { id: 6, font: "'Roboto Mono', monospace", label: "Roboto Mono" },
     { id: 7, font: "'Ubuntu Sans Mono', system-ui", label: "Ubuntu Sans" },
     { id: 8, font: "'Syne Mono', monospace", label: "Syne Mono" },
-    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro" }
+    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro" },
   ]);
 
   return (
@@ -61,8 +61,9 @@ const ChangeThemeButton = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="outline"
-                    className="group !p-0 !mt-0 !w-full !bg-transparent !hover:opacity-50"
+                    variant={null}
+                    size={null}
+                    className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
                   >
                     <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
                       <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
@@ -110,8 +111,9 @@ const ChangeThemeButton = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="outline"
-                    className="group !p-0 !mt-0 !w-full !bg-transparent !hover:opacity-50"
+                    variant={null}
+                    size={null}
+                    className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04]"
                   >
                     <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
                       <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
@@ -155,8 +157,9 @@ const ChangeThemeButton = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="outline"
-                    className="group !p-0 !mt-0 !w-full !bg-transparent !hover:opacity-50"
+                    variant={null}
+                    size={null}
+                    className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
                   >
                     <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
                       <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
@@ -201,7 +204,14 @@ const ChangeThemeButton = () => {
                   <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-4">
                     {fontFamily?.length > 0 &&
                       fontFamily?.map((font) => {
-                        return <FontBlock key={font?.id} data={font} setSelected={setSelected} selected={selected} />;
+                        return (
+                          <FontBlock
+                            key={font?.id}
+                            data={font}
+                            setSelected={setSelected}
+                            selected={selected}
+                          />
+                        );
                       })}
                   </div>
                 </DropdownMenuContent>
@@ -212,8 +222,9 @@ const ChangeThemeButton = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="outline"
-                    className="group !p-0 !mt-0 !w-full !bg-transparent !hover:opacity-50"
+                    variant={null}
+                    size={null}
+                    className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04]"
                   >
                     <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
                       <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">

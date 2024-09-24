@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import CalendarDropdown from "./CalendarDropdown";
 import PublicDropdown from "./PublicDropdown";
 
@@ -8,7 +8,7 @@ const Right = () => {
   const [position, setPosition] = useState("bottom");
   return (
     <div className="right-side">
-      <div className="flex flex-wrap items-center justify-between flex-col sm:flex-row gap-2">
+      <div className="flex flex-wrap items-center justify-between flex-col xxs:flex-row gap-2">
         <CalendarDropdown position={position} setPosition={setPosition} />
         <PublicDropdown position={position} setPosition={setPosition} />
       </div>
@@ -19,14 +19,14 @@ const Right = () => {
           maxLength="140"
           autoCapitalize="words"
           spellCheck="false"
-          autoFocus
+          // autoFocus
           className="font-mono"
         ></textarea>
       </div>
 
       <div className="flex flex-col gap-4">
         {/* Start and End Dates */}
-        <div className="flex flex-col sm:flex-row flex-1 gap-3">
+        <div className="flex-col xxs:flex-row flex-1 gap-3 hidden xxs:flex">
           <div className="time-wrapper">
             <div className="timeline"></div>
             <div className="p-1 ps-3 gap-1 flex justify-between items-baseline">
@@ -111,11 +111,38 @@ const Right = () => {
                     ></path>
                   </svg>
                 </div>
-                <div className="text-sm font-medium gmt">
-                  GMT+05:30
-                </div>
+                <div className="text-sm font-medium gmt">GMT+05:30</div>
                 <div className="whitespace-nowrap text-sm truncate gmt-state">
                   Calcutta
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Add Event Time */}
+        <div className="add-event-time xxs:hidden">
+          <div className="inner py-1.5 px-3">
+            <div className="flex flex-start gap-2">
+              <div className="icon">
+                <svg
+                  className="w-4 h-4 mt-1 svg-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12m0 1.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15m-.523-6.963A.75.75 0 0 1 7.25 8V4a.75.75 0 0 1 1.5 0v3.69l1.195 1.194a.75.75 0 0 1-1.061 1.06z"
+                  ></path>
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <div className="location-text font-medium truncate">
+                  Tuesday 24 September
+                </div>
+                <div className="virtual-link truncate text-sm">
+                  15:30 - 16:30 GMT+5:30
                 </div>
               </div>
             </div>
@@ -185,9 +212,7 @@ const Right = () => {
 
         {/* Event Options */}
         <div className="event-options">
-          <span className="event-text">
-            Event Options
-          </span>
+          <span className="event-text">Event Options</span>
           <div className="event-list-item first-item">
             <div className="inner py-2 px-3">
               <div className="flex flex-start gap-2">
@@ -241,9 +266,7 @@ const Right = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="free truncate">
-                    Required Approval
-                  </div>
+                  <div className="free truncate">Required Approval</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="free truncate">
@@ -276,9 +299,7 @@ const Right = () => {
                   <div className="free truncate">Capacity</div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="free truncate">
-                    Unlimited
-                  </div>
+                  <div className="free truncate">Unlimited</div>
                   <svg
                     className="w-4 h-4 mt-1 svg-icon"
                     xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +318,13 @@ const Right = () => {
         </div>
 
         {/* Create Event Button */}
-        <Button className="custom-button px-5 leading-5">Create Event</Button>
+        <Button
+          variant={null}
+          size={null}
+          className={`custom-button px-5 !leading-5 py-3 mt-4 rounded-lg text-lg transition-all focus-visible:outline-0 text-white`}
+        >
+          Create Event
+        </Button>
       </div>
     </div>
   );
