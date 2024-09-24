@@ -79,7 +79,7 @@ const Header = () => {
               <li className='hidden md:block'>
                 <a
                   href=""
-                  className="cursor-auto text-lightBlack/[0.36] text-sm focus-visible:outline-none"
+                  className="cursor-auto text-lightBlack/[0.36] text-sm focus-visible:outline-0"
                 >
                   5:50 PM GMT+5:30
                 </a>
@@ -87,7 +87,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="truncate text-lightBlack/[0.64] hover:text-black text-sm font-medium focus-visible:outline-none"
+                  className="truncate text-lightBlack/[0.64] hover:text-black text-sm font-medium focus-visible:outline-0"
                 >
                   Create Event
                 </a>
@@ -95,7 +95,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-none group"
+                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-0 group"
                 >
                   <svg
                     className="w-4 h-4 fill-lightBlack/[.36] group-hover:fill-black transition-all"
@@ -112,7 +112,7 @@ const Header = () => {
               <li>
                 <a
                   href=""
-                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-none group"
+                  className="text-lightBlack/[0.64] text-sm font-medium focus-visible:outline-0 group"
                 >
                   <svg
                     className="w-4 h-4 fill-lightBlack/[.36] group-hover:fill-black transition-all"

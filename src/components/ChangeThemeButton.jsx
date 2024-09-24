@@ -56,7 +56,7 @@ const ChangeThemeButton = () => {
         </DrawerTrigger>
 
         <DrawerContent className="bg-white/[0.48] backdrop-blur-lg border-1 border-black/[0.04] shadow-drawer rounded-t-2xl focus-visible:outline-0">
-          <div className="theme-controls flex flex-wrap items-center justify-center py-4 px-5">
+          <div className="flex flex-wrap items-center justify-center py-4 px-5">
             <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -201,7 +201,7 @@ const ChangeThemeButton = () => {
                   align="center"
                   className="pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
                 >
-                  <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-4">
+                  <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-3">
                     {fontFamily?.length > 0 &&
                       fontFamily?.map((font) => {
                         return (
