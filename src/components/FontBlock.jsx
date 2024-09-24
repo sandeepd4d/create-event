@@ -15,7 +15,7 @@ const FontBlock = ({data, selected, setSelected}) => {
     >
       <div className="icon-wrapper">
         <svg
-          className="w-16.5 h-16.5"
+          className="w-16 h-16"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 88 88"
         >
