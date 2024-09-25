@@ -5,7 +5,7 @@ import React, { createContext, useState, useContext } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children  }) => {
-  const [theme, setTheme] = useState("195 152 50");
+  const [theme, setTheme] = useState("#c39832");
   const [font, setFont] = useState('system-ui');
 
   const adjustTheme = (value) => {

@@ -19,7 +19,6 @@ const Right = () => {
           maxLength="140"
           autoCapitalize="words"
           spellCheck="false"
-          // autoFocus
           className="font-mono"
         ></textarea>
       </div>

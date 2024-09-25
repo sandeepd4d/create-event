@@ -61,10 +61,6 @@
   html {
     padding-right: 0 !important;
   }
-  /* html body[data-scroll-locked="1"] {
-     overflow: scroll !important; 
-     margin-right: 0 !important; 
-  } */
 }
 @tailwind components;
 @tailwind utilities;
@@ -124,7 +120,6 @@
 .change-theme-button .edit-theme-icon {
   fill: rgba(var(--primary-color-950), 0.36);
 }
-/* done */
 
 /* Right Sidebar */
 .right-side {
@@ -218,7 +213,6 @@ input:checked + .slider:before {
 .date-input input[type="text"],
 .time-input input[type="text"] {
   @apply min-w-0 h-8 px-2 text-base font-medium bg-transparent w-full border-0 border-transparent rounded text-start items-center transition-all focus-visible:outline-0;
-  /*  focus-visible:outline-offset-0 */
   color: rgba(var(--primary-color-950), 1);
 }
 .timezone {
@@ -343,22 +337,23 @@ input:checked + .slider:before {
 .dropdown-menu-label {
   @apply text-lightBlack/[0.36] px-2.5 py-1 text-xs;
 }
-div[data-state="closed"][data-vaul-snap-points-overlay="false"],
-div[data-state="open"][data-vaul-snap-points-overlay="true"] {
-  @apply !bg-white/[0.2];
-}
-[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=closed],
-[data-vaul-drawer][data-vaul-snap-points=false][data-vaul-drawer-direction=bottom][data-state=open] {transition:transform!important; animation:none!important; transform: translate3d(0, 0, 0)!important;}
-[data-vaul-drawer][data-vaul-drawer-direction=bottom]::after{display: none;}
-.font-wrapper {
-  @apply text-lightBlack/[0.32] border border-transparent cursor-pointer;
-}
 .icon-wrapper {
   @apply border-2 border-lightBlack/[0.08] rounded-lg py-1.5 px-2 flex items-center justify-center w-full transition-all;
 }
 .text-wrap {
   @apply capitalize text-xs text-center w-full whitespace-nowrap mt-1 transition-all;
 }
+
+.custom-drawer {
+  @apply flex fixed bottom-0 left-0 right-0 duration-300 bg-white rounded-t-lg transition-transform ease-in-out z-50 bg-white/[0.48] backdrop-blur-lg border border-black/[0.04] shadow-drawer rounded-t-2xl focus-visible:outline-0;
+  transform: translate3d(0, 100%, 0);
+}
+.custom-drawer.open {transform: translate3d(0, 0, 0);}
+.custom-drawer.open ~ .custom-drawer-overlay {z-index: 20;}
+.custom-drawer-overlay {
+  @apply opacity-20 fixed top-0 bottom-0 left-0 right-0 bg-white/[0.2] w-full h-full -z-10 transition-all;
+}
+
 @media (hover: hover) {
   .timezone:hover {
     border-color: rgba(var(--primary-color-950), 0.04);
