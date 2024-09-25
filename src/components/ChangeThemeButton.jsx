@@ -9,20 +9,22 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import FontBlock from "./FontBlock";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 
 const ChangeThemeButton = () => {
   const { theme, adjustTheme } = useTheme();
   const [selected, setSelected] = useState("default");
   const fontFamily = [
-    { id: 1, font: "system-ui", label: "default", type:'mono' },
-    { id: 2, font: "'VT323', monospace", label: "VT323", type:'vt' },
-    { id: 3, font: "'Noto Sans Mono', monospace", label: "Noto Sans", type:'noto' },
-    { id: 4, font: "'Space Mono', monospace", label: "Space Mono", type:'space' },
-    { id: 5, font: "'Rubik Mono One', monospace", label: "Rubik One", type:'rubik' },
-    { id: 6, font: "'Roboto Mono', monospace", label: "Roboto Mono", type:'roboto' },
-    { id: 7, font: "'Ubuntu Sans Mono', system-ui", label: "Ubuntu Sans", type:'ubuntu' },
-    { id: 8, font: "'Syne Mono', monospace", label: "Syne Mono", type:'syne' },
-    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro", type:'pro' },
+    { id: 1, font: "system-ui", label: "default", type: 'mono' },
+    { id: 2, font: "'VT323', monospace", label: "VT323", type: 'vt' },
+    { id: 3, font: "'Noto Sans Mono', monospace", label: "Noto Sans", type: 'noto' },
+    { id: 4, font: "'Space Mono', monospace", label: "Space Mono", type: 'space' },
+    { id: 5, font: "'Rubik Mono One', monospace", label: "Rubik One", type: 'rubik' },
+    { id: 6, font: "'Roboto Mono', monospace", label: "Roboto Mono", type: 'roboto' },
+    { id: 7, font: "'Ubuntu Sans Mono', system-ui", label: "Ubuntu Sans", type: 'ubuntu' },
+    { id: 8, font: "'Syne Mono', monospace", label: "Syne Mono", type: 'syne' },
+    { id: 9, font: "'Anonymous Pro', monospace", label: "Anonymous Pro", type: 'pro' },
   ];
 
   return (
@@ -56,6 +58,17 @@ const ChangeThemeButton = () => {
         </DrawerTrigger>
 
         <DrawerContent className="bg-white/[0.48] backdrop-blur-lg border-1 border-black/[0.04] shadow-drawer rounded-t-2xl focus-visible:outline-0">
+
+          {/* below is added by client */}
+          <DrawerHeader className='p-0 h-0 overflow-hidden'>
+            <VisuallyHidden>
+              <DrawerTitle>
+                Need a Drawer Title Here
+              </DrawerTitle>
+            </VisuallyHidden>
+          </DrawerHeader>
+          {/* above is added by client */}
+
           <div className="flex flex-wrap items-center justify-center py-4 px-5">
             <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
               <DropdownMenu>
