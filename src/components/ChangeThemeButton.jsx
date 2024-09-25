@@ -8,8 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import FontBlock from "./FontBlock";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 
 const ChangeThemeButton = () => {
   const { theme, adjustTheme } = useTheme();
