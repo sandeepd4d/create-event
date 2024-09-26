@@ -1,16 +1,14 @@
 "use client";
-import { useState } from "react";
-import { Button, buttonVariants } from "./ui/button";
+import { Button } from "./ui/button";
 import CalendarDropdown from "./CalendarDropdown";
 import PublicDropdown from "./PublicDropdown";
 
 const Right = () => {
-  const [position, setPosition] = useState("bottom");
   return (
     <div className="right-side">
       <div className="flex flex-wrap items-center justify-between flex-col xxs:flex-row gap-2">
-        <CalendarDropdown position={position} setPosition={setPosition} />
-        <PublicDropdown position={position} setPosition={setPosition} />
+        <CalendarDropdown />
+        <PublicDropdown align="right" />
       </div>
       <div className="name-input-wrapper">
         <textarea

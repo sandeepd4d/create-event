@@ -10,7 +10,7 @@ import {
 import FontBlock from "./FontBlock";
 
 const ChangeThemeButton = () => {
-  const { theme, adjustTheme } = useTheme();
+  const { theme, adjustTheme, setCanBodyScroll } = useTheme();
   const [selected, setSelected] = useState("default");
   const [open, setOpen] = useState(false);
   const fontFamily = [
@@ -30,7 +30,7 @@ const ChangeThemeButton = () => {
       <div>
         <button
           className="change-theme-button p-0"
-          onClick={() => setOpen(true)}
+          onClick={() => {setOpen(true); setCanBodyScroll(false)}}
         >
           <img
             src="https://images.lumacdn.com/themes/thumb/minimal.jpg"
@@ -274,7 +274,7 @@ const ChangeThemeButton = () => {
             </div>
           </div>          
         </div>
-        <div className="custom-drawer-overlay" onClick={()=>setOpen(false)}></div>
+        <div className="custom-drawer-overlay" onClick={()=>{setOpen(false); setCanBodyScroll(true)}}></div>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 "use client"
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 // Create a ThemeContext
 const ThemeContext = createContext();
@@ -7,6 +7,11 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children  }) => {
   const [theme, setTheme] = useState("#c39832");
   const [font, setFont] = useState('system-ui');
+  const [canBodyScroll, setCanBodyScroll] = useState(true);
+  
+  useEffect(()=>{
+    canBodyScroll ? document.body.classList.remove('drawer-open'):document.body.classList.add('drawer-open');
+  },[canBodyScroll]);
 
   const adjustTheme = (value) => {
     setTheme(value?.rgb);
@@ -42,7 +47,7 @@ export const ThemeProvider = ({ children  }) => {
 }
 
   return (
-    <ThemeContext.Provider value={{ theme, adjustTheme, changeFontFamily, font, setFont }}>
+    <ThemeContext.Provider value={{ theme, adjustTheme, changeFontFamily, font, setFont, setCanBodyScroll }}>
       {children}
     </ThemeContext.Provider>
   );

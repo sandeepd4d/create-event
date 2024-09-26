@@ -23,16 +23,23 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne+Mono&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=VT323&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne+Mono&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=VT323&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
-      </body>
+        <body
+          // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </body>
     </html>
   );
 }

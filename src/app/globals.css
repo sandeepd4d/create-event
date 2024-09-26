@@ -77,7 +77,9 @@
   }
 }
 /***************************************************************************/
-
+body.drawer-open {
+  overflow: hidden;    
+}
 .header-right {
   max-width: calc(960px + calc(100% - 960px) / 2);
 }
@@ -285,8 +287,7 @@ input:checked + .slider:before {
 .custom-dropdown button span {
   @apply mr-auto;
 }
-.custom-dropdown:not(.profile-menu) button[aria-expanded="true"],
-.custom-dropdown:not(.profile-menu) button:hover {
+.custom-dropdown:not(.profile-menu) button[aria-expanded="true"] {
   background-color: rgba(var(--primary-color-950), 0.64);
   border-color: rgba(var(--primary-color-950), 0.64);
   color: rgba(255, 255, 255, 1);
@@ -310,7 +311,7 @@ input:checked + .slider:before {
   @apply border-lightBlack text-lightBlack;
 }
 .dropdown-menu-item {
-  @apply pl-2 pr-10 text-base;
+  @apply pl-2 pr-10 text-base relative flex lg:hover:bg-zinc-200 cursor-pointer select-none items-center rounded-sm py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
 }
 .dropdown-menu-item > span span {
   @apply hidden;
@@ -353,8 +354,38 @@ input:checked + .slider:before {
 .custom-drawer-overlay {
   @apply opacity-20 fixed top-0 bottom-0 left-0 right-0 bg-white/[0.2] w-full h-full -z-10 transition-all;
 }
+.custom-dropdown input[type="radio"] {
+  @apply absolute left-0 top-0 -z-10 appearance-none;
+}
+.custom-dropdown-menu {
+  @apply after:-top-1 after:right-3 after:w-[10px] after:absolute after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-b-4 absolute top-[40px] -z-10 opacity-0 border bg-popover p-1 text-popover-foreground shadow-md w-full min-w-72 rounded-lg translate-y-5 transition-all
+}
+.custom-dropdown-menu.tooltip-left {@apply after:right-3}
+.custom-dropdown-menu:after {border-bottom-color:#ffffff!important;}
+.custom-dropdown-menu.show {@apply opacity-100 z-50 translate-y-0}
 
-@media (hover: hover) {
+/* change the color contrast when buttons are active in the mobile viewport */
+/* When buttons will open any drawer or their own content area then this will be try to implement */
+
+/* .change-theme-button:active {
+  background-color: rgba(var(--primary-color-950), 0.08);
+  border-color: rgba(var(--primary-color-950), 0.04);
+}
+.add-event-time:active,
+.add-event-location:active {
+  background-color: rgba(var(--primary-color-950), 0.08);
+  border-color: rgba(var(--primary-color-950), 0.08);
+}
+.add-description:active {
+  background-color: rgba(var(--primary-color-950), 0.08);
+  border-color: rgba(var(--primary-color-950), 0.08);
+}
+.custom-button:active {
+  background-color: rgba(var(--primary-color-600), 0.85);
+} */
+
+/* @media (hover: hover) { */
+@media (min-width:1200px) {
   .timezone:hover {
     border-color: rgba(var(--primary-color-950), 0.04);
     background-color: rgba(var(--primary-color-950), 0.08);
@@ -381,5 +412,10 @@ input:checked + .slider:before {
   .font-wrapper:hover .text-wrap,
   .font-wrapper:hover .icon-wrapper {
     @apply border-lightBlack/[0.64] text-lightBlack/[0.64];
+  }
+  .custom-dropdown:not(.profile-menu) button:hover {
+    background-color: rgba(var(--primary-color-950), 0.64);
+    border-color: rgba(var(--primary-color-950), 0.64);
+    color: rgba(255, 255, 255, 1);
   }
 }

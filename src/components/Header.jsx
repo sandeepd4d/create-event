@@ -127,7 +127,7 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <PorfileDropdown />
+                <PorfileDropdown align="right" />
               </li>
             </ul>
           </div>
