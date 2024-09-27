@@ -1,17 +1,24 @@
+import { useTheme } from "@/context/ThemeContext";
 import { Globe, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const PublicDropdown = ({ align }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("public");
+  const {  setOpenDropdown, setCanBodyScroll } = useTheme();
+
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setOpenDropdown(true);
+    setCanBodyScroll(false)
   };
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
+      setOpenDropdown(null);
+      setCanBodyScroll(true)
     }
   };
   useEffect(() => {
@@ -20,10 +27,19 @@ const PublicDropdown = ({ align }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenDropdown(null);
+    setCanBodyScroll(true)
+  }, [status]);
+
   return (
     <>
       <div
-        className="custom-dropdown relative w-full xxs:w-auto"
+        className={`custom-dropdown relative w-full xxs:w-auto ${
+          isOpen ? "z-50" : "z-30"
+        }`}
         ref={dropdownRef}
       >
         <button
@@ -31,7 +47,11 @@ const PublicDropdown = ({ align }) => {
           aria-expanded={isOpen}
           className="truncate full xxs:w-28 min-w-28 xxs:max-w-28 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group !mt-0 !h-auto"
         >
-         {status === "public" ? <Globe className="h-4 w-4" />:<Sparkles className="h-4 w-4" />}
+          {status === "public" ? (
+            <Globe className="h-4 w-4" />
+          ) : (
+            <Sparkles className="h-4 w-4" />
+          )}
           <span className="text-sm capitalize truncate flex-1 text-left">
             {status}
           </span>

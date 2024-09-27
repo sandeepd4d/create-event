@@ -7,6 +7,7 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children  }) => {
   const [theme, setTheme] = useState("#c39832");
   const [font, setFont] = useState('system-ui');
+  const [openDropdown, setOpenDropdown] = useState(null);
   const [canBodyScroll, setCanBodyScroll] = useState(true);
   
   useEffect(()=>{
@@ -47,7 +48,7 @@ export const ThemeProvider = ({ children  }) => {
 }
 
   return (
-    <ThemeContext.Provider value={{ theme, adjustTheme, changeFontFamily, font, setFont, setCanBodyScroll }}>
+    <ThemeContext.Provider value={{ theme, adjustTheme, changeFontFamily, font, setFont, setCanBodyScroll, openDropdown, setOpenDropdown }}>
       {children}
     </ThemeContext.Provider>
   );

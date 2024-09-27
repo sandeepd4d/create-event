@@ -1,17 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CalendarDays, CalendarDaysIcon, Plus } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const CalendarDropdown = () => {
+  const { setOpenDropdown, setCanBodyScroll} = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [calendar, setCalendar] = useState("personal");
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setOpenDropdown(true)
+    setCanBodyScroll(false)
   };
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
+      setOpenDropdown(null);
+      setCanBodyScroll(true)
     }
   };
   useEffect(() => {
@@ -21,10 +27,16 @@ const CalendarDropdown = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenDropdown(null);
+    setCanBodyScroll(true)
+  }, [calendar]);
+
   return (
     <>
       <div
-        className="custom-dropdown relative w-full xxs:w-auto"
+        className={`custom-dropdown relative w-full xxs:w-auto ${isOpen ? 'z-50':'z-30'}`}
         ref={dropdownRef}
       >
         <button

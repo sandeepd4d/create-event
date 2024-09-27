@@ -37,6 +37,7 @@ const ChangeThemeButton = () => {
             alt="Minimal Theme"
             className="w-12"
           />
+          
           <div className="button-text-wrap">
             <div className="theme-text">Theme</div>
             <div className="theme-type">Minimal</div>
