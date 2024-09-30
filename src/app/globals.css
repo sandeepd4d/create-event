@@ -79,10 +79,10 @@
 /***************************************************************************/
 html.drawer-open,
 body.drawer-open {
-  overflow: hidden;    
-  position: fixed;
-  height: 100%;
-  width: 100%;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 .header-right {
   max-width: calc(960px + calc(100% - 960px) / 2);
