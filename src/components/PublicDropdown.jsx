@@ -5,13 +5,13 @@ import { useEffect, useRef, useState } from "react";
 const PublicDropdown = ({ align }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("public");
-  const {  setOpenDropdown, setCanBodyScroll } = useTheme();
+  const { setOpenDropdown, setCanBodyScroll, openDropdown } = useTheme();
 
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-    setOpenDropdown(true);
-    setCanBodyScroll(false)
+    setOpenDropdown(!isOpen);
+    setCanBodyScroll(isOpen)
   };
 
   const handleClickOutside = (event) => {
@@ -22,11 +22,13 @@ const PublicDropdown = ({ align }) => {
     }
   };
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    if(isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isOpen]);
   
   useEffect(() => {
     setIsOpen(false);
@@ -36,6 +38,7 @@ const PublicDropdown = ({ align }) => {
 
   return (
     <>
+      <div className={`dropdown-overlay ${isOpen ? 'show':''}`}></div>
       <div
         className={`custom-dropdown relative w-full xxs:w-auto ${
           isOpen ? "z-50" : "z-30"
@@ -68,7 +71,7 @@ const PublicDropdown = ({ align }) => {
             <path d="m6 9 6 6 6-6"></path>
           </svg>
         </button>
-        {isOpen && (
+        {(
           <div
             className={`custom-dropdown-menu ${
               align === "right" ? "right-0" : "left-0"

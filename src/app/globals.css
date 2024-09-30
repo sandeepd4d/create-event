@@ -77,8 +77,12 @@
   }
 }
 /***************************************************************************/
+html.drawer-open,
 body.drawer-open {
   overflow: hidden;    
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 .header-right {
   max-width: calc(960px + calc(100% - 960px) / 2);
@@ -351,7 +355,8 @@ input:checked + .slider:before {
 .custom-drawer.open {transform: translate3d(0, 16px, 0); padding-bottom: 16px;}
 .custom-drawer.open ~ .custom-drawer-overlay {z-index: 40;}
 .custom-drawer-overlay {
-  @apply opacity-20 fixed top-0 bottom-0 left-0 right-0 bg-white/[0.2] w-full h-full -z-10 transition-all;
+  @apply fixed top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 -z-10 transition-all;
+  background-color: rgba(var(--primary-color-950), 1);
 }
 .custom-dropdown input[type="radio"] {
   @apply absolute left-0 top-0 -z-10 appearance-none;

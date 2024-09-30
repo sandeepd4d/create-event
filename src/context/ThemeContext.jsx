@@ -11,6 +11,7 @@ export const ThemeProvider = ({ children  }) => {
   const [canBodyScroll, setCanBodyScroll] = useState(true);
   
   useEffect(()=>{
+    console.log(canBodyScroll, 'changed');
     canBodyScroll ? document.body.classList.remove('drawer-open'):document.body.classList.add('drawer-open');
   },[canBodyScroll]);
 

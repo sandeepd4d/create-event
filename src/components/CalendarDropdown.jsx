@@ -3,14 +3,14 @@ import { CalendarDays, CalendarDaysIcon, Plus } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 const CalendarDropdown = () => {
-  const { setOpenDropdown, setCanBodyScroll} = useTheme();
+  const { setOpenDropdown, setCanBodyScroll, openDropdown} = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [calendar, setCalendar] = useState("personal");
   const dropdownRef = useRef(null);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-    setOpenDropdown(true)
-    setCanBodyScroll(false)
+    setOpenDropdown(!isOpen)
+    setCanBodyScroll(isOpen)
   };
 
   const handleClickOutside = (event) => {
@@ -21,11 +21,13 @@ const CalendarDropdown = () => {
     }
   };
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    if(isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     setIsOpen(false);
@@ -35,6 +37,7 @@ const CalendarDropdown = () => {
 
   return (
     <>
+      <div className={`dropdown-overlay ${isOpen ? 'show':''}`}></div>
       <div
         className={`custom-dropdown relative w-full xxs:w-auto ${isOpen ? 'z-50':'z-30'}`}
         ref={dropdownRef}
@@ -59,7 +62,7 @@ const CalendarDropdown = () => {
             <path d="m6 9 6 6 6-6"></path>
           </svg>
         </button>
-        {isOpen && (
+        {(
           <div className={`custom-dropdown-menu tooltip-left ${isOpen ? "show" : ""}`}>
             <div className="px-2 py-1.5 text-sm font-semibold dropdown-menu-label">
               Choose the calendar of the event:

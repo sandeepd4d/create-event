@@ -2,13 +2,10 @@
 import { Button } from "./ui/button";
 import CalendarDropdown from "./CalendarDropdown";
 import PublicDropdown from "./PublicDropdown";
-import { useTheme } from "@/context/ThemeContext";
 
 const Right = () => {
-  const {openDropdown} = useTheme();
   return (
     <>
-      <div className={`dropdown-overlay ${openDropdown !== null ? 'show':''}`}></div>
       <div className="right-side">
         <div className="flex flex-wrap items-center justify-between flex-col xxs:flex-row gap-2">
           <CalendarDropdown />
