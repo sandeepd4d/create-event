@@ -342,7 +342,7 @@ input:checked + .slider:before {
   @apply text-lightBlack/[0.36] px-2.5 py-1 text-xs;
 }
 .icon-wrapper {
-  @apply border-2 border-lightBlack/[0.08] rounded-lg py-1.5 px-2 flex items-center justify-center w-full transition-all;
+  @apply cursor-pointer border-2 border-lightBlack/[0.08] rounded-lg py-1.5 px-2 flex items-center justify-center w-full transition-all;
 }
 .text-wrap {
   @apply capitalize text-xs text-center w-full whitespace-nowrap mt-1 transition-all;

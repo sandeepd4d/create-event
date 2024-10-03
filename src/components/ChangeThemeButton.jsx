@@ -2,18 +2,27 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChromePicker } from "react-color";
 import { useTheme } from "@/context/ThemeContext";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
 import FontBlock from "./FontBlock";
 
 const ChangeThemeButton = () => {
   const drawerRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const dropdownRefs = {
+    color: useRef(null),
+    style: useRef(null),
+    fonts: useRef(null),
+    display: useRef(null),
+  };
   const { theme, adjustTheme, setCanBodyScroll } = useTheme();
   const [selected, setSelected] = useState("default");
   const [open, setOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState({
+    color: false,
+    style: false,
+    fonts: false,
+    display: false,
+  });
   const fontFamily = [
     { id: 1, font: "system-ui", label: "default", type: "mono" },
     { id: 2, font: "'VT323', monospace", label: "VT323", type: "vt" },
@@ -62,21 +71,51 @@ const ChangeThemeButton = () => {
   };
 
   const handleClickOutsideDrawer = (event) => {
-    if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-      setOpen(false);
-      setCanBodyScroll(true);
+    const clickedOutsideDrawer = drawerRef.current && !drawerRef.current.contains(event.target);
+    const clickedInsideDrawer = drawerRef.current && drawerRef.current.contains(event.target);
+  
+    const clickedInsideAnyDropdown = Object.values(dropdownRefs).some(
+      (ref) => ref.current && ref.current.contains(event.target)
+    );
+  
+    if (clickedInsideDrawer && !clickedInsideAnyDropdown) {
+      // Clicked inside drawer but outside dropdowns
+      if (Object.values(isDropdownOpen).some((isOpen) => isOpen)) {
+        // Close all dropdowns
+        setIsDropdownOpen({
+          color: false,
+          style: false,
+          fonts: false,
+          display: false,
+        });
+      }
+    } else if (clickedOutsideDrawer) {
+      // Clicked outside drawer
+      if (Object.values(isDropdownOpen).some((isOpen) => isOpen)) {
+        // Close all dropdowns
+        setIsDropdownOpen({
+          color: false,
+          style: false,
+          fonts: false,
+          display: false,
+        });
+      } else {
+        // Close the drawer
+        setOpen(false);
+        setCanBodyScroll(true);
+      }
     }
   };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutsideDrawer);
     return () => {
       document.removeEventListener("mousedown", handleClickOutsideDrawer);
     };
-  }, []);
-  
+  }, [isDropdownOpen]);
   return (
     <>
-     <div className="custom-drawer-overlay"></div>
+      <div className="custom-drawer-overlay"></div>
       <div ref={drawerRef}>
         <button className="change-theme-button p-0" onClick={toggleDrawer}>
           <img
@@ -103,149 +142,187 @@ const ChangeThemeButton = () => {
             </svg>
           </div>
         </button>
-          <div className={`custom-drawer ${open ? "open" : ""}`}>
-            <div className="flex flex-wrap items-center justify-center py-4 px-5 w-full">
-              <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant={null}
-                      size={null}
-                      className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
-                    >
-                      <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
-                        <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
-                          <div className="content-wrapper gap-1 flex item-center">
-                            <div className="color-wrap mr-1">
-                              <div className="circle w-6 h-6 rounded-full"></div>
-                            </div>
-                            <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
-                              <div className="max-w-full text-base text-lightBlack/[0.64]">
-                                Color
-                              </div>
-                              <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
-                                Red
-                              </div>
-                            </div>
-                            <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
-                              <svg
-                                className="!fill-lightBlack/[0.32] !stroke-transparent"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
+        <div className={`custom-drawer ${open ? "open" : ""}`}>
+          <div className="flex flex-wrap items-center justify-center py-4 px-5 w-full">
+            <div
+              className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]"
+              ref={dropdownRefs.color}
+            >
+              <Button
+                onClick={() =>
+                  setIsDropdownOpen(({
+                    color: !isDropdownOpen.color,
+                    style: false,
+                    fonts: false,
+                    display: false,
+                  }))
+                }
+                variant={null}
+                size={null}
+                className="dropdown-toggle group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
+              >
+                <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
+                  <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
+                    <div className="content-wrapper gap-1 flex item-center">
+                      <div className="color-wrap mr-1">
+                        <div className="circle w-6 h-6 rounded-full"></div>
+                      </div>
+                      <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
+                        <div className="max-w-full text-base text-lightBlack/[0.64]">
+                          Color
+                        </div>
+                        <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
+                          Red
                         </div>
                       </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                      <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
+                        <svg
+                          className="!fill-lightBlack/[0.32] !stroke-transparent"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Button>
+              {isDropdownOpen?.color && (
+                <div className="absolute bottom-full">
+                  <div
                     align="center"
-                    className="pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
+                    className="dropdown-menu pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
                   >
                     <div className="wrap max-w-[95vw] bg-white rounded-lg backdrop-blur-lg shadow-fonts">
                       <ChromePicker color={theme} onChange={adjustTheme} />
                     </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
-              <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant={null}
-                      size={null}
-                      className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04]"
-                    >
-                      <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
-                        <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
-                          <div className="content-wrapper gap-1 flex item-center opacity-30">
-                            <div className="color-wrap mr-1">
-                              <div className="circle w-6 h-6 rounded-full"></div>
-                            </div>
-                            <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
-                              <div className="max-w-full text-base text-lightBlack/[0.64]">
-                                Style
-                              </div>
-                              <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
-                                ---
-                              </div>
-                            </div>
-                            <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
-                              <svg
-                                className=""
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fill="currentColor"
-                                  fillRule="evenodd"
-                                  d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
+            <div
+              className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]"
+              ref={dropdownRefs.style}
+            >
+              <Button
+                onClick={() =>
+                  setIsDropdownOpen(({
+                    color: false,
+                    style: !isDropdownOpen.style,
+                    fonts: false,
+                    display: false,
+                  }))
+                }
+                variant={null}
+                size={null}
+                className="dropdown-toggle group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
+              >
+                <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
+                  <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
+                    <div className="content-wrapper gap-1 flex item-center opacity-30">
+                      <div className="color-wrap mr-1">
+                        <div className="circle w-6 h-6 rounded-full"></div>
+                      </div>
+                      <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
+                        <div className="max-w-full text-base text-lightBlack/[0.64]">
+                          Style
+                        </div>
+                        <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
+                          ---
                         </div>
                       </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end"></DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-
-              <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant={null}
-                      size={null}
-                      className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
-                    >
-                      <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
-                        <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
-                          <div className="content-wrapper gap-1 flex item-center">
-                            <div className="color-wrap mr-1">
-                              <div
-                                className={`w-6 h-6 rounded-full text-base text-lightBlack font-mono`}
-                              >
-                                Ag
-                              </div>
-                            </div>
-                            <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
-                              <div className="max-w-full text-base text-lightBlack/[0.64]">
-                                Font
-                              </div>
-                              <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
-                                Default
-                              </div>
-                            </div>
-                            <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
-                              <svg
-                                className=""
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fill="currentColor"
-                                  fillRule="evenodd"
-                                  d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
+                        <svg
+                          className=""
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="currentColor"
+                            fillRule="evenodd"
+                            d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
+                          ></path>
+                        </svg>
                       </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
+                    </div>
+                  </div>
+                </div>
+              </Button>
+              {isDropdownOpen?.style && (
+                <div className="absolute bottom-full hidden">
+                  {" "}
+                  <div
                     align="center"
-                    className="pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
+                    className="dropdown-menu pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
+                  >
+                    <div className="wrap max-w-[95vw] bg-white rounded-lg backdrop-blur-lg shadow-fonts p-4"></div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div
+              className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]"
+              ref={dropdownRefs.fonts}
+            >
+              <Button
+                onClick={() =>
+                  setIsDropdownOpen(({
+                    color: false,
+                    style: false,
+                    fonts: !isDropdownOpen.fonts,
+                    display: false,
+                  }))
+                }
+                variant={null}
+                size={null}
+                className="dropdown-toggle group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
+              >
+                <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
+                  <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
+                    <div className="content-wrapper gap-1 flex item-center">
+                      <div className="color-wrap mr-1">
+                        <div
+                          className={`w-6 h-6 rounded-full text-base text-lightBlack font-mono`}
+                        >
+                          Ag
+                        </div>
+                      </div>
+                      <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
+                        <div className="max-w-full text-base text-lightBlack/[0.64]">
+                          Font
+                        </div>
+                        <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
+                          Default
+                        </div>
+                      </div>
+                      <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
+                        <svg
+                          className=""
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="currentColor"
+                            fillRule="evenodd"
+                            d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Button>
+              {isDropdownOpen?.fonts && (
+                <div className="absolute bottom-full">
+                  <div
+                    align="center"
+                    className="dropdown-menu pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
                   >
                     <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-3">
                       {fontFamily?.length > 0 &&
@@ -260,64 +337,81 @@ const ChangeThemeButton = () => {
                           );
                         })}
                     </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
-              <div className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant={null}
-                      size={null}
-                      className="group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04]"
-                    >
-                      <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
-                        <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
-                          <div className="content-wrapper gap-1 flex item-center opacity-30">
-                            <div className="color-wrap mr-1 flex flex-wrap items-center">
-                              <svg
-                                className="w-5 h-5 fill-lightBlack/[0.64]"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M2 8.024A6.024 6.024 0 0 1 8.024 2v12.048A6.024 6.024 0 0 1 2 8.024M8.024.5a7.524 7.524 0 1 0 0 15.048A7.524 7.524 0 0 0 8.024.5"
-                                ></path>
-                              </svg>
-                            </div>
-                            <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
-                              <div className="max-w-full text-base text-lightBlack/[0.64]">
-                                Display
-                              </div>
-                              <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
-                                Auto
-                              </div>
-                            </div>
-                            <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
-                              <svg
-                                className=""
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  fill="currentColor"
-                                  fillRule="evenodd"
-                                  d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
-                                ></path>
-                              </svg>
-                            </div>
-                          </div>
+            <div
+              className="custom-dropdown w-full xxs:w-1/2 max-w-full md:w-1/4 py-2 px-2 xl:max-w-[280px]"
+              ref={dropdownRefs.display}
+            >
+              <Button
+                onClick={() =>
+                  setIsDropdownOpen(({
+                    color: false,
+                    style: false,
+                    fonts: false,
+                    display: !isDropdownOpen.display,
+                  }))
+                }
+                variant={null}
+                size={null}
+                className="dropdown-toggle group !p-0 !mt-0 !w-full !bg-lightBlack/[0.04] hover:!bg-lightBlack/[0.08]"
+              >
+                <div className="menu-trigger-wrapper max-w-full cursor-pointer inline-flex min-w-0 w-full flex-1 outline-0">
+                  <div className="theme-option w-full flex-1 relative overflow-hidden cursor-pointer bg-black/[0.04] rounded-lg py-2 pr-2.5 pl-3 transition-all">
+                    <div className="content-wrapper gap-1 flex item-center opacity-30">
+                      <div className="color-wrap mr-1 flex flex-wrap items-center">
+                        <svg
+                          className="w-5 h-5 fill-lightBlack/[0.64]"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M2 8.024A6.024 6.024 0 0 1 8.024 2v12.048A6.024 6.024 0 0 1 2 8.024M8.024.5a7.524 7.524 0 1 0 0 15.048A7.524 7.524 0 0 0 8.024.5"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div className="content-wrap max-w-full flex-1 flex items-center justify-between">
+                        <div className="max-w-full text-base text-lightBlack/[0.64]">
+                          Display
+                        </div>
+                        <div className="whitespace-nowrap capitalize text-base font-medium text-black/[0.36] pr-2">
+                          Auto
                         </div>
                       </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end"></DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+                      <div className="arrow-wrap flex items-center justify-center transition-all text-black/[0.2] w-4">
+                        <svg
+                          className=""
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="currentColor"
+                            fillRule="evenodd"
+                            d="M4.164 10.253a1 1 0 1 0-1.328 1.494l4.5 4a1 1 0 0 0 1.328 0l4.5-4a1 1 0 0 0-1.328-1.494L8 13.662zm7.672-4.506a1 1 0 0 0 1.328-1.494l-4.5-4a1 1 0 0 0-1.328 0l-4.5 4a1 1 0 1 0 1.328 1.494L8 2.338z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Button>
+              {isDropdownOpen?.display && (
+                <div className="absolute bottom-full hidden">
+                  <div
+                    align="center"
+                    className="dropdown-menu pb-3 after:bottom-2 after:left-0 after:right-0 after:w-[10px] after:mx-auto after:absolute after:bottom-0 after:inline-block after:content-[''] after:border-r-4 after:border-l-4 after:border-r-transparent after:border-l-transparent after:border-t-4 after:border-t-white"
+                  >
+                    <div className="wrap w-[360px] max-w-[95vw] p-4 bg-white rounded-lg backdrop-blur-lg shadow-fonts grid grid-cols-4 gap-3"></div>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>       
+          </div>
+        </div>
       </div>
     </>
   );
